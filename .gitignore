@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/sca.aktinesconsulting.core/obj/Debug
+/sca.aktinesconsulting.core/obj/Release
+/sca.aktinesconsulting.entitiy/obj/Debug
+/sca.aktinesconsulting.entitiy/obj/Release
