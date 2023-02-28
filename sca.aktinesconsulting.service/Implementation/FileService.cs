@@ -54,6 +54,59 @@ namespace sca.aktinesconsulting.service.Implementation
             }
             return dts;
         }
+
+        public List<DataTable> ExcelDataReader(MemoryStream file, string sheetName, string col)
+        {
+            var dts = new List<DataTable>();
+            using (var reader = new StreamReader(file))
+            {
+                using (var package = new ExcelPackage(file))
+                {
+
+                    for (int i = 1; i <= package.Workbook.Worksheets.Count; i++)
+                    {
+                        var worksheet = package.Workbook.Worksheets[i];
+                        DataTable table = new DataTable();
+                        if (string.IsNullOrEmpty(sheetName) || worksheet.Name.Equals(sheetName))
+                        {
+                            string sheet = worksheet.Name;
+                            int colCount = worksheet.Dimension.End.Column;
+                            for (int colinx = 1; colinx <= colCount; colinx++)
+                            {
+                                table.Columns.Add("Col" + colinx);
+                            }
+                        }
+                        var rowCount = worksheet.Dimension.Rows;
+                        for (var rowNumber = 1; rowNumber <= rowCount; rowNumber++)
+                        {
+                            var cellText = worksheet.Cells[col + rowNumber + ":" + col + rowNumber].Text;
+                            if (!string.IsNullOrEmpty(cellText))
+                            {
+                                var row = worksheet.Cells[rowNumber, 1, rowNumber, worksheet.Dimension.End.Column];
+                                var data = ((object[,])row.Value).Cast<dynamic>().ToArray();
+                                table.Rows.Add(data);
+                            }
+
+                        }
+                        for (var r = 0; r < table.Rows.Count; r++)
+                        {
+                            for (var c = 0; c < table.Columns.Count; c++)
+                            {
+                                if (table.Rows[r][c] == DBNull.Value)
+                                {
+                                    table.Rows[r][c] = string.Empty;
+                                }
+                            }
+                        }
+
+
+                        dts.Add(table);
+                    }
+                }
+            }
+            return dts;
+        }
+
         public void ExportToCSV(DataTable dtDataTable, string strFilePath)
         {
             StreamWriter sw = new StreamWriter(strFilePath, false);

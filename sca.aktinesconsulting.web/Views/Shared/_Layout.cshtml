@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aktinesconsulting</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css"*@ />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet">
+    <link href="~/assets/css/ltr-core.css" rel="stylesheet" />
+    <link href="~/assets/css/ltr-vendor.css" rel="stylesheet" />
+
+</head>
+
+<body class="aside-active aside-mobile-minimized aside-desktop-maximized preload-hide">
+    /&gt;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet">
+    <link href="/assets/css/ltr-core.css" rel="stylesheet">
+    <link href="/assets/css/ltr-vendor.css" rel="stylesheet">
+    @await RenderSectionAsync("Styles", required: false)
+    <div class="preload">
+        <div class="preload-dialog">
+            <div class="spinner-border text-primary preload-spinner"></div>
+        </div>
+    </div>
+    <div class="holder">
+        <div class="aside" style="">
+            <div class="aside-header">
+                <div class="aside-title">
+
+                    <img src="~/assets/images/client_logistics_logo_1.png" width="80%" />
+                </div>
+
+                <div class="aside-addon"><button class="btn btn-label-primary btn-icon btn-lg" data-toggle="aside" fdprocessedid="9gm81a"><i class="fa fa-times aside-icon-minimize"></i> <i class="fa fa-thumbtack aside-icon-maximize"></i></button></div>
+            </div>
+            <div class="aside-body" data-simplebar="init" data-simplebar-direction="ltr">
+                <div class="simplebar-wrapper" style="margin: 0px;">
+                    <div class="simplebar-height-auto-observer-wrapper">
+                        <div class="simplebar-height-auto-observer"></div>
+                    </div>
+                    <div class="simplebar-mask">
+                        <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                            <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                                <div class="simplebar-content" style="padding: 0px;">
+                                    <div class="menu">
+
+                                        <div class="menu-item">
+                                            <button class="menu-item-link menu-item-toggle active" fdprocessedid="o7yqpk">
+                                                <div class="menu-item-icon"><i class="fa fa-palette"></i></div>
+                                                <span class="menu-item-text">SCA Exception</span>
+                                                <div class="menu-item-addon"><i class="menu-item-caret caret"></i></div>
+                                            </button>
+                                            <div class="menu-submenu" style="height: 0px;">
+                                                <div class="menu-item"><a href="../elements/base/accordion.html" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-play-circle"></i> <span class="menu-item-text">Process</span></a></div>
+                                                <div class="menu-item"><a href="../elements/base/accordion.html" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-gear"></i> <span class="menu-item-text">Settings</span></a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simplebar-placeholder" style="width: auto; height: 756px;"></div>
+                </div>
+                <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                    <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                </div>
+                <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                    <div class="simplebar-scrollbar" style="height: 25px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper" style="">
+            <div class="header">
+                @Html.Partial("_Breadcrumb")
+                <div class="sticky-header" id="sticky-header-mobile">
+                    <div class="header-holder header-holder-mobile">
+                        <div class="header-container container-fluid g-5">
+                            <div class="header-wrap"><button class="btn btn-flat-primary btn-icon" data-toggle="aside"><i class="fa fa-bars"></i></button></div>
+                            <div class="header-wrap header-wrap-block justify-content-start px-3">
+                                <h4 class="header-brand">Upmin</h4>
+                            </div>
+                            <div class="header-wrap hstack gap-2">
+                                <button class="btn btn-flat-primary btn-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-todo"><i class="far fa-calendar-alt"></i></button>
+                                <div class="dropdown">
+                                    <button class="btn btn-flat-primary widget13" data-bs-toggle="dropdown">
+                                        <div class="widget13-text">Hi <strong>User</strong></div>
+                                        <div class="avatar avatar-info widget13-avatar">
+                                            <div class="avatar-display"><i class="fa fa-user-alt"></i></div>
+                                        </div>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-wide dropdown-menu-end dropdown-menu-animated overflow-hidden py-0">
+                                        <div class="portlet border-0">
+                                            <div class="portlet-header bg-primary rounded-0">
+                                                <div class="rich-list-item w-100 p-0">
+                                                    <div class="rich-list-prepend">
+                                                        <div class="avatar avatar-label-light avatar-circle">
+                                                            <div class="avatar-display"><i class="fa fa-user-alt"></i></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rich-list-content">
+                                                        <h3 class="rich-list-title text-white">Charlie Stone</h3>
+                                                        <span class="rich-list-subtitle text-white">admin@blueupcode.com</span>
+                                                    </div>
+                                                    <div class="rich-list-append"><span class="badge badge-label-light fs-6">9+</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body p-0">
+                                                <div class="grid-nav grid-nav-flush grid-nav-action grid-nav-no-rounded">
+                                                    <div class="grid-nav-row">
+                                                        <a href="#" class="grid-nav-item">
+                                                            <div class="grid-nav-icon"><i class="far fa-address-card"></i></div>
+                                                            <span class="grid-nav-content">Profile</span>
+                                                        </a>
+                                                        <a href="#" class="grid-nav-item">
+                                                            <div class="grid-nav-icon"><i class="far fa-comments"></i></div>
+                                                            <span class="grid-nav-content">Messages</span>
+                                                        </a>
+                                                        <a href="#" class="grid-nav-item">
+                                                            <div class="grid-nav-icon"><i class="far fa-clone"></i></div>
+                                                            <span class="grid-nav-content">Activities</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="grid-nav-row">
+                                                        <a href="#" class="grid-nav-item">
+                                                            <div class="grid-nav-icon"><i class="far fa-calendar-check"></i></div>
+                                                            <span class="grid-nav-content">Tasks</span>
+                                                        </a>
+                                                        <a href="#" class="grid-nav-item">
+                                                            <div class="grid-nav-icon"><i class="far fa-sticky-note"></i></div>
+                                                            <span class="grid-nav-content">Notes</span>
+                                                        </a>
+                                                        <a href="#" class="grid-nav-item">
+                                                            <div class="grid-nav-icon"><i class="far fa-bell"></i></div>
+                                                            <span class="grid-nav-content">Notification</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-footer portlet-footer-bordered rounded-0"><button class="btn btn-label-danger">Sign out</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-holder header-holder-mobile">
+                    <div class="header-container container-fluid g-5">
+                        <div class="header-wrap header-wrap-block justify-content-start w-100">
+                            <div class="breadcrumb breadcrumb-transparent mb-0">
+                                <a href="../index.html" class="breadcrumb-item">
+                                    <div class="breadcrumb-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                        </svg>
+                                    </div>
+                                    <span class="breadcrumb-text">Dashboard</span>
+                                </a>
+                                <a href="#" class="breadcrumb-item"><span class="breadcrumb-text">Form</span> </a><a href="../form/base.html" class="breadcrumb-item"><span class="breadcrumb-text">Base</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="container-fluid g-5">
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="footer">
+                <div class="container-fluid g-5">
+                    <div class="row g-3">
+                        <div class="col-sm-6 text-center text-sm-start">
+                            <p class="mb-0"><i class="far fa-copyright"></i> <span id="copyright-year">2023</span> Upmin. All rights reserved</p>
+                        </div>
+                        <div class="col-sm-6 text-center text-sm-end">
+                            <p class="mb-0">Hand-crafted and made with <i class="fa fa-heart text-danger"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="floating-btn floating-btn-end d-grid gap-2"><button class="btn btn-flat-primary btn-icon" data-bs-toggle="tooltip" data-bs-placement="right" id="theme-toggle" aria-label="Change theme" data-bs-original-title="Change theme" fdprocessedid="v17im"><i class="fa fa-moon"></i></button></div>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/mandatory.js"></script>
+    <script src="/assets/js/core.js"></script>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/sticky-header.js"></script>
+    <script src="/assets/js/copyright-year.js"></script>
+    <script src="/assets/js/theme-switcher.js"></script>
+    <script src="/assets/js/tooltip-popover.js"></script>
+    <script src="/assets/js/dropdown-scrollbar.js"></script>
+    <script src="/assets/js/fullscreen-trigger.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+
+
+
+</html>

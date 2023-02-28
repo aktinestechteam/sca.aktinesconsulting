@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "v";
+    ViewData["BreadcrumbHeader"] = "SCA Exception";
+    ViewData["BreadcrumbPage"] = "Process";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-header portlet-header-bordered">
+                <h3 class="portlet-title">Booking Entry Manual input</h3>
+            </div>
+            <div class="portlet-body">
+                <div class="d-grid gap-3">
+                    <div class="col-md-6">
+                        <form asp-controller="SCAException" asp-action="ProcessBookingEntry" asp-antiforgery="false"
+                              id="fmUpload" method="post"
+                              enctype="multipart/form-data">
+                            <div class="modal-body" style="padding:10px">
+                                <div class="flex-column">
+                                    <label for="formFile" class="form-label">Select File</label>
+                                    <input class="form-control" type="file" id="formFile" accept=".xlsx">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button id="btnUpload" type="button" class="btn btn-primary mar" fdprocessedid="3hmaxr" style="margin-right:5px"><i class="fa fa-play-circle" style="margin-right:5px"></i>Process</button>
+                                <button class="btn btn-outline-success" fdprocessedid="igougf"><i class="fa fa-gear" style="margin-right:5px"></i>Setting</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <table id="dtBookingEntry" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline">
+                        <thead>
+                            <tr>
+                                <td>AWB</td>
+                                <td>BookingCreatedDate</td>
+                                <td>FlightDepartureDate</td>
+                                <td>BOOKING_TIME</td>
+                                <td>FLIGHT_DEP_TIME</td>
+                                <td>BookingOrigin</td>
+                                <td>BookingDestination</td>
+                                <td>BookingRateType</td>
+                                <td>CURRENCY_CD</td>
+                                <td>AgentCode</td>
+                                <td>AgentName</td>
+                                <td>BookingDestinationCountry</td>
+                                <td>BookingDestinationRegion</td>
+                                <td>BookingLastUpdatedBy</td>
+                                <td>BookingOriginCountry</td>
+                                <td>BookingOriginSalesArea</td>
+                                <td>BookingOriginRegion</td>
+                                <td>BookingReference</td>
+                                <td>Channel</td>
+                                <td>SpecialHandlingCodes</td>
+                                <td>ChargeableWeight</td>
+                                <td>RevGBP</td>
+                                <td>Volume</td>
+                                <td>ProductCode</td>
+                                <td>ProductName</td>
+                                <td>FlightNumber</td>
+                                <td>MetalInfo</td>
+                                <td>ExceptionId</td>
+                                <td>ExceptionDescription</td>
+                                <td>ExceptionRuleExist</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="modal10" style="display: none;" aria-hidden="true"><div class="modal-dialog modal-fullscreen"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Full screen modal</h5><button type="button" class="btn btn-label-danger btn-icon" data-bs-dismiss="modal"><i class="fa fa-times"></i></button></div><div class="modal-body">...</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div>
+@section Styles{
+    <style>
+        .buttons-colvis {
+            margin: 5px;
+        }
+
+        .buttons-excel {
+            margin: 5px;
+        }
+    </style>
+}
+@section Scripts {
+
+    <script src="~/app/sca-exception.js" asp-append-version="true"></script>
+
+}

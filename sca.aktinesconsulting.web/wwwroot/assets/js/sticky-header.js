@@ -1,0 +1,1 @@
+﻿"use strict";$(function(){var i="#sticky-header-desktop",t="#sticky-header-mobile",n={topSpacing:0};function e(i){$(i).parent(".sticky-wrapper").length<1&&$(i).sticky(n)}function c(i){$(i).unstick()}$(window).resize(function(){1025<=$(this).width()?(e(i),c(t)):(e(t),c(i))}),1025<=$(window).width()?e(i):e(t)});
