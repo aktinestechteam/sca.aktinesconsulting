@@ -1,94 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9FE5055A-35CD-4427-9C24-10E15E1B15E2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>sca.aktinesconsulting.core</RootNamespace>
-    <AssemblyName>sca.aktinesconsulting.core</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\sca.aktinesconsulting.entitiy\sca.aktinesconsulting.entitiy.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="IPipelineElement.cs" />
-    <Compile Include="Pipeline.cs" />
-    <Compile Include="PipeStream\AgentCodePipeStream.cs" />
-    <Compile Include="PipeStream\AWBPipeStream.cs" />
-    <Compile Include="PipeStream\BookingDestinationCountryPipeStream.cs" />
-    <Compile Include="PipeStream\BookingDestinationPipeStream.cs" />
-    <Compile Include="PipeStream\BookingDestinationRegionPipeStream.cs" />
-    <Compile Include="PipeStream\BookingOriginCountryPipeStream.cs" />
-    <Compile Include="PipeStream\BookingOriginPipeStream.cs" />
-    <Compile Include="PipeStream\BookingOriginRegionPipeStream.cs" />
-    <Compile Include="PipeStream\BookingOriginSalesAreaPipeStream.cs" />
-    <Compile Include="PipeStream\BookingRateTypePipeStream.cs" />
-    <Compile Include="PipeStream\BookingReferencePipeStream.cs" />
-    <Compile Include="PipeStream\ChannelPipeStream.cs" />
-    <Compile Include="PipeStream\ChargeableWeightPipeStream.cs" />
-    <Compile Include="PipeStream\CurrencyPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeAgentCodePipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingDestinationCountryPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingDestinationPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingDestinationRegionPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingOriginCountryPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingOriginPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingOriginRegionPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingOriginSalesAreaPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeBookingRateTypePipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeChannelPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeFlightNumberPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeMetalInfoPipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeProductCodePipeStream.cs" />
-    <Compile Include="PipeStream\ExcludeSpecialHandlingCodesPipeStream.cs" />
-    <Compile Include="PipeStream\FlightDepartureDatePipeStream.cs" />
-    <Compile Include="PipeStream\FlightNumberPipeStream.cs" />
-    <Compile Include="PipeStream\MetalInfoPipeStream.cs" />
-    <Compile Include="PipeStream\ProductCodePipeStream.cs" />
-    <Compile Include="PipeStream\ProductNamePipeStream.cs" />
-    <Compile Include="PipeStream\RevCurrencyPipeStream.cs" />
-    <Compile Include="PipeStream\RevGBPPipeStream.cs" />
-    <Compile Include="PipeStream\SpecialHandlingCodesPipeStream.cs" />
-    <Compile Include="PipeStream\StartDateEndDatePipeStream.cs" />
-    <Compile Include="PipeStream\VolumePipeStream.cs" />
-    <Compile Include="PipeStream\YieldGBPPipeStream.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\sca.aktinesconsulting.entitiy\sca.aktinesconsulting.entitiy.csproj">
-      <Project>{A6AF6457-B57A-472F-B5C5-A71FB13F2D5A}</Project>
-      <Name>sca.aktinesconsulting.entitiy</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

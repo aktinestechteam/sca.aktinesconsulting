@@ -1,0 +1,325 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.service\\sca.aktinesconsulting.service.csproj": {}
+  },
+  "projects": {
+    "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.core\\sca.aktinesconsulting.core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.core\\sca.aktinesconsulting.core.csproj",
+        "projectName": "sca.aktinesconsulting.core",
+        "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.core\\sca.aktinesconsulting.core.csproj",
+        "packagesPath": "C:\\Users\\Laxmikant\\.nuget\\packages\\",
+        "outputPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Laxmikant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj": {
+                "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj",
+        "projectName": "sca.aktinesconsulting.entitiy",
+        "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj",
+        "packagesPath": "C:\\Users\\Laxmikant\\.nuget\\packages\\",
+        "outputPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Laxmikant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.infrastructure\\sca.aktinesconsulting.infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.infrastructure\\sca.aktinesconsulting.infrastructure.csproj",
+        "projectName": "sca.aktinesconsulting.infrastructure",
+        "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.infrastructure\\sca.aktinesconsulting.infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Laxmikant\\.nuget\\packages\\",
+        "outputPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Laxmikant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj": {
+                "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.repository\\sca.aktinesconsulting.repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.repository\\sca.aktinesconsulting.repository.csproj",
+        "projectName": "sca.aktinesconsulting.repository",
+        "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.repository\\sca.aktinesconsulting.repository.csproj",
+        "packagesPath": "C:\\Users\\Laxmikant\\.nuget\\packages\\",
+        "outputPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Laxmikant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj": {
+                "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj"
+              },
+              "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.infrastructure\\sca.aktinesconsulting.infrastructure.csproj": {
+                "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.infrastructure\\sca.aktinesconsulting.infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.service\\sca.aktinesconsulting.service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.service\\sca.aktinesconsulting.service.csproj",
+        "projectName": "sca.aktinesconsulting.service",
+        "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.service\\sca.aktinesconsulting.service.csproj",
+        "packagesPath": "C:\\Users\\Laxmikant\\.nuget\\packages\\",
+        "outputPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Laxmikant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.core\\sca.aktinesconsulting.core.csproj": {
+                "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.core\\sca.aktinesconsulting.core.csproj"
+              },
+              "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj": {
+                "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.entitiy\\sca.aktinesconsulting.entitiy.csproj"
+              },
+              "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.repository\\sca.aktinesconsulting.repository.csproj": {
+                "projectPath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.repository\\sca.aktinesconsulting.repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "EPPlus.Core": {
+              "target": "Package",
+              "version": "[1.5.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using sca.aktinesconsulting.entitiy;
+using sca.aktinesconsulting.infrastructure.Implementation;
+using sca.aktinesconsulting.infrastructure.Interface;
+using sca.aktinesconsulting.repository.Implementation;
+using sca.aktinesconsulting.repository.Interface;
 using sca.aktinesconsulting.service.Implementation;
 using sca.aktinesconsulting.service.Interface;
 using System;
@@ -15,8 +20,14 @@ namespace sca.aktinesconsulting.web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            var builder = new ConfigurationBuilder()
+     .SetBasePath(env.ContentRootPath)
+     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+            builder.AddEnvironmentVariables();
+            configuration = builder.Build();
             Configuration = configuration;
         }
 
@@ -25,10 +36,16 @@ namespace sca.aktinesconsulting.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AppSettings>(options => Configuration.GetSection("AppSettings").Bind(options));
+            services.AddTransient<IDatabaseConfig, DatabaseConfig>();
+            services.AddTransient<IDatabaseContext, DatabaseContext>();
+            services.AddTransient<IExceptionRepository, ExceptionRepository>();
             services.AddTransient<IFileService, FileService>();
             services.AddTransient<IExceptionService, ExceptionService>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+   
+                //.AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

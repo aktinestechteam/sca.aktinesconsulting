@@ -16,3 +16,10 @@
 /sca.aktinesconsulting.windows/obj/Debug
 /sca.aktinesconsulting.web/bin/Debug/net5.0
 /sca.aktinesconsulting.web/obj
+/packages
+/sca.aktinesconsulting.core/obj
+/sca.aktinesconsulting.infrastructure/bin/Debug/netcoreapp3.1
+/sca.aktinesconsulting.infrastructure/obj
+/sca.aktinesconsulting.repository/bin/Debug/netcoreapp3.1
+/sca.aktinesconsulting.repository/obj
+/sca.aktinesconsulting.web/bin/Debug/netcoreapp3.1

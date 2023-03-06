@@ -79,19 +79,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\sca.aktinesconsulting.core\sca.aktinesconsulting.core.csproj">
-      <Project>{9fe5055a-35cd-4427-9c24-10e15e1b15e2}</Project>
-      <Name>sca.aktinesconsulting.core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\sca.aktinesconsulting.entitiy\sca.aktinesconsulting.entitiy.csproj">
-      <Project>{a6af6457-b57a-472f-b5c5-a71fb13f2d5a}</Project>
-      <Name>sca.aktinesconsulting.entitiy</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\sca.aktinesconsulting.service\sca.aktinesconsulting.service.csproj">
-      <Project>{19349F20-8E33-4A9F-BB56-9B23AF46AECD}</Project>
-      <Name>sca.aktinesconsulting.service</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
