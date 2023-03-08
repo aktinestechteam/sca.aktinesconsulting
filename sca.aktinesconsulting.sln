@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sca.aktinesconsulting.infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sca.aktinesconsulting.web", "sca.aktinesconsulting.web\sca.aktinesconsulting.web.csproj", "{BC02CCEF-8298-49EB-880C-FD96ED339A36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sca.aktinesconsulting.repository", "sca.aktinesconsulting.repository\sca.aktinesconsulting.repository.csproj", "{353242F0-925A-4E54-8B03-C8B9FC539D58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sca.aktinesconsulting.repository", "sca.aktinesconsulting.repository\sca.aktinesconsulting.repository.csproj", "{353242F0-925A-4E54-8B03-C8B9FC539D58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sca.aktinesconsulting.service", "sca.aktinesconsulting.service\sca.aktinesconsulting.service.csproj", "{7333925D-A2C9-443A-BA18-FED136619963}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sca.aktinesconsulting.service", "sca.aktinesconsulting.service\sca.aktinesconsulting.service.csproj", "{7333925D-A2C9-443A-BA18-FED136619963}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "sca.aktinesconsulting.database", "sca.aktinesconsulting.database\sca.aktinesconsulting.database.sqlproj", "{9B2130AA-CA83-4534-AC57-B4A3F05D89DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,12 @@ Global
 		{7333925D-A2C9-443A-BA18-FED136619963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7333925D-A2C9-443A-BA18-FED136619963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7333925D-A2C9-443A-BA18-FED136619963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2130AA-CA83-4534-AC57-B4A3F05D89DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2130AA-CA83-4534-AC57-B4A3F05D89DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2130AA-CA83-4534-AC57-B4A3F05D89DA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9B2130AA-CA83-4534-AC57-B4A3F05D89DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2130AA-CA83-4534-AC57-B4A3F05D89DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2130AA-CA83-4534-AC57-B4A3F05D89DA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
