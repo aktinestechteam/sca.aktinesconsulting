@@ -2,8 +2,8 @@
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT SCAExceptionFieldId,[Name] 
+	SELECT SCAExceptionFieldId,SCAExceptionFieldTypeId,[Name] 
 	FROM [dbo].SCAExceptionFields 
-	ORDER BY SCAExceptionFieldTypeId,[Name]
+	ORDER BY SCAExceptionFieldTypeId,[Name] 
 END
 GO

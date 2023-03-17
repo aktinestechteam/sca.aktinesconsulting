@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.repository.Implementation
 {
@@ -17,14 +18,14 @@ namespace sca.aktinesconsulting.repository.Implementation
         {
             _dbContext = dbContext;
         }
-        public IList<SCAExceptionField> GetAll()
+        public async Task<IList<SCAExceptionField>> GetAll()
         {
             try
             {
                 using (var con = _dbContext.Connection)
                 {
                     var queryParameters = new DynamicParameters();
-                    return SqlMapper.Query<SCAExceptionField>(con, ConstantStoredProcedures.SCAExceptionFields_GetAll, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                    return (await SqlMapper.QueryAsync<SCAExceptionField>(con, ConstantStoredProcedures.SCAExceptionFields_GetAll, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).ToList();
                 }
             }
             catch (Exception)

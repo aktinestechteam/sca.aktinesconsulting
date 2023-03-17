@@ -1,0 +1,667 @@
+﻿@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "v";
+    ViewData["BreadcrumbHeader"] = "SCA Exception";
+    ViewData["BreadcrumbPage"] = "Setting";
+}
+
+
+<input type="hidden" id="exceptionId" value=@ViewData["exceptionId"]>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-header portlet-header-bordered">
+                @{
+                if(@ViewData["exceptionId"].ToString()=="0"){
+                <h3 class="portlet-title">Add SCA Exception Rule</h3>
+                }
+                else{
+                <h3 class="portlet-title">Update SCA Exception Rule : @ViewData["exceptionId"] </h3>
+                }
+                }
+            </div>
+            <div class="portlet-body">
+                <div class="col-md-12">
+                    <div class="row" style="padding:10px">
+                        @*Booking Origin*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Origin
+                            <select id="cmbBookingOrigin" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Booking Origin
+                            <select id="cmbExcludeBookingOrigin" data-placeholder="Choose anything" multiple style="background:#FAD5A5">
+                            </select>
+                        </div>
+
+                        @*Booking Destination*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Destination
+                            <select id="cmbBookingDestination" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Booking Destination
+                            <select id="cmbExcludeBookingDestination" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*Booking Rate Type*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Rate Type
+                            <select id="cmbBookingRateType" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Booking Rate Type
+                            <select id="cmbExcludeBookingRateType" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+
+                        @*Agent Code*@
+                        <div class="col-md-3 col-sm-6">
+                            Agent Code
+                            <select id="cmbAgentCode" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Agent Code
+                            <select id="cmbExcludeAgentCode" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*Booking Destination Country*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Destination Country
+                            <select id="cmbBookingDestinationCountry" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Booking Destination Country
+                            <select id="cmbExcludeBookingDestinationCountry" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+
+                        @*Booking Destination Region*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Destination Region
+                            <select id="cmbBookingDestinationRegion" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude  Booking Destination Region
+                            <select id="cmbExcludeBookingDestinationRegion" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*Booking Origin Country*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Origin Country
+                            <select id="cmbBookingOriginCountry" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Booking Origin Country
+                            <select id="cmbExcludeBookingOriginCountry" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+
+                        @*Booking Origin Sales Area*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Origin Sales Area
+                            <select id="cmbBookingOriginSalesArea" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Booking Origin Sales Area
+                            <select id="cmbExcludeBookingOriginSalesArea" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*BookingOriginRegion*@
+                        <div class="col-md-3 col-sm-6">
+                            Booking Origin Region
+                            <select id="cmbBookingOriginRegion" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Booking Origin Region
+                            <select id="cmbExcludeBookingOriginRegion" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+
+                        @*Channel*@
+                        <div class="col-md-3 col-sm-6">
+                            Channel
+                            <select id="cmbChannel" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Channel
+                            <select id="cmbExcludeChannel" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*SpecialHandlingCodes*@
+                        <div class="col-md-3 col-sm-6">
+                            SpecialHandlingCodes
+                            <select id="cmbSpecialHandlingCodes" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude SpecialHandling Codes
+                            <select id="cmbExcludeSpecialHandlingCodes" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+
+                        @*ProductCode*@
+                        <div class="col-md-3 col-sm-6">
+                            ProductCode
+                            <select id="cmbProductCode" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude Product Code
+                            <select id="cmbExcludeProductCode" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*MetalInfo*@
+                        <div class="col-md-3 col-sm-6">
+                            MetalInfo
+                            <select id="cmbMetalInfo" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            Exclude MetalInfo
+                            <select id="cmbExcludeMetalInfo" data-placeholder="Choose anything" multiple>
+                            </select>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row" style="padding:10px">
+                        @*Chargeable Weight*@
+                        <div class="col-md-3 col-sm-6" style=" margin-top: 20px;">
+                            Chargeable Weight
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <input class="form-check-input" id="flexRadioDefault2" type="radio" value="0" name="groupChargeableWeight" checked>
+                            By Condition
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <select class="form-control" id="cmbChargeableWeightCondition">
+                                <option value="">Select</option>
+                                <option value="0"><</option>
+                                <option value="1">=</option>
+                                <option value="2"><=</option>
+                                <option value="3">></option>
+                                <option value="4">>=</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <input class="form-control" id="txtChargeableWeight" type="text">
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <input class="form-check-input" id="flexRadioDefault2" type="radio" value="1" name="groupChargeableWeight">
+                            By Range
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div style="display:flex">
+                                <span style="margin-top: 5px">From</span> <input class="form-control" id="txtChargeableWeightFrom" type="text" style="margin-left:20px;">
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div style="display:flex">
+                                <span style="margin-top: 5px">To</span> <input class="form-control" id="txtChargeableWeightTo" type="text" style="margin-left: 20px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*Volume*@
+                        <div class="col-md-3 col-sm-6" style=" margin-top: 20px;">
+                            Volume
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <input class="form-check-input" id="flexRadioDefault2" type="radio" value="0" name="groupVolume" checked>
+                            By Condition
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <select class="form-control" id="cmbVolumeCondition">
+                                <option value="">Select</option>
+                                <option value="0"><</option>
+                                <option value="1">=</option>
+                                <option value="2"><=</option>
+                                <option value="3">></option>
+                                <option value="4">>=</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <input class="form-control" id="txtVolume" type="text">
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <input class="form-check-input" id="flexRadioDefault2" type="radio" value="1" name="groupVolume">
+                            By Range
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div style="display:flex">
+                                <span style="margin-top: 5px">From</span> <input class="form-control" id="txtVolumeFrom" type="text" style="margin-left:20px;">
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div style="display:flex">
+                                <span style="margin-top: 5px">To</span> <input class="form-control" id="txtVolumeTo" type="text" style="margin-left: 20px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    @{
+                    if(@ViewData["exceptionId"].ToString()=="0"){
+                    <button id="btnSave" type="button" class="btn btn-primary mar"><i class="fa fa-play-circle" style="margin-right:5px"></i>Save</button>
+                    }
+                    else{
+                    <button id="btnSave" type="button" class="btn btn-primary mar"><i class="fa fa-play-circle" style="margin-right:5px"></i>Update</button>
+                    }
+                    }
+                    <button id="btnReset" type="button" class="btn btn-outline-info" style="margin-left:5px"><i class="fa fa-gear" style="margin-right:5px"></i>Reset</button>
+                    <button id="btnExceptions" type="button" class="btn btn-outline-info" style="margin-left:5px"><i class="fa fa-list" style="margin-right: 5px"></i>Exceptions</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            init();
+            $("#btnSave").click(function () {
+                var params = {
+                    scaExceptionId: $('#exceptionId').val() ? Number($('#exceptionId').val()) : 0 ,
+                    bookingOrigins: getArray('cmbBookingOrigin'),
+                    excludeBookingOrigins: getArray('cmbExcludeBookingOrigin'),
+                    bookingDestinations: getArray('cmbBookingDestination'),
+                    excludeBookingDestinations: getArray('cmbExcludeBookingDestination'),
+                    bookingRateTypes: getArray('cmbBookingRateType'),
+                    excludeBookingRateTypes: getArray('cmbExcludeBookingRateType'),
+                    agentCodes: getArray('cmbAgentCode'),
+                    excludeAgentCodes: getArray('cmbExcludeAgentCode'),
+                    bookingDestinationCountries: getArray('cmbBookingDestinationCountry'),
+                    excludeBookingDestinationCountries: getArray('cmbExcludeBookingDestinationCountry'),
+                    bookingDestinationRegions: getArray('cmbBookingDestinationRegion'),
+                    excludeBookingDestinationRegions: getArray('cmbExcludeBookingDestinationRegion'),
+                    bookingOriginCountries: getArray('cmbBookingOriginCountry'),
+                    excludeBookingOriginCountries: getArray('cmbExcludeBookingOriginCountry'),
+                    bookingOriginSalesAreas: getArray('cmbBookingOriginSalesArea'),
+                    excludeBookingOriginSalesAreas: getArray('cmbExcludeBookingOriginSalesArea'),
+                    bookingOriginRegions: getArray('cmbBookingOriginRegion'),
+                    excludeBookingOriginRegions: getArray('cmbExcludeBookingOriginRegion'),
+                    channels: getArray('cmbChannel'),
+                    excludeChannels: getArray('cmbExcludeChannel'),
+                    specialHandlingCodes: getArray('cmbSpecialHandlingCodes'),
+                    excludeSpecialHandlingCodes: getArray('cmbExcludeSpecialHandlingCodes'),
+                    productCodes: getArray('cmbProductCode'),
+                    excludeProductCodes: getArray('cmbExcludeProductCode'),
+                    metalInfos: getArray('cmbMetalInfo'),
+                    excludeMetalInfos: getArray('cmbExcludeMetalInfo'),
+                    chargeableWeight: getDecimalValue('txtChargeableWeight'),
+                    isChargeableWeightRange: $('input[name="groupChargeableWeight"]:checked').val() === "1" ? true : false,
+                    chargeableWeightRangeFrom: getDecimalValue('txtChargeableWeightFrom'),
+                    chargeableWeightRangeTo: getDecimalValue('txtChargeableWeightTo'),
+                    isChargeableWeightLessThan: getOperators('cmbChargeableWeightCondition', '<', 'groupChargeableWeight'),
+                    isChargeableWeightEqualTo: getOperators('cmbChargeableWeightCondition', '=', 'groupChargeableWeight'),
+                    isChargeableWeightLessthanEqualTo: getOperators('cmbChargeableWeightCondition', '<=', 'groupChargeableWeight'),
+                    isChargeableWeightGreaterThan: getOperators('cmbChargeableWeightCondition', '>', 'groupChargeableWeight'),
+                    isChargeableWeightGreaterThanEqualTo: getOperators('cmbChargeableWeightCondition', '>=', 'groupChargeableWeight'),
+                    volume: getDecimalValue('txtVolume'),
+                    isVolumeRange: $('input[name="groupVolume"]:checked').val() === "1" ? true : false,
+                    volumeRangeFrom: getDecimalValue('txtVolumeFrom'),
+                    volumeRangeTo: getDecimalValue('txtVolumeTo'),
+                    isVolumeLessThan: getOperators('cmbVolumeCondition', '<', 'groupVolume'),
+                    isVolumeEqualTo: getOperators('cmbVolumeCondition', '=', 'groupVolume'),
+                    isVolumeLessthanEqualTo: getOperators('cmbVolumeCondition', '<=', 'groupVolume'),
+                    isVolumeGreaterThan: getOperators('cmbVolumeCondition', '>', 'groupVolume'),
+                    isVolumeGreaterThanEqualTo: getOperators('cmbVolumeCondition', '>=', 'groupVolume'),
+                }
+                $.ajax({
+                    url: '/scaexceptionsetting/addupdate',
+                    method: 'POST',
+                    cache: false,
+                    contentType: 'application/json',
+                    data: JSON.stringify(params),
+                    success: function (response) {
+                        window.location.href = '/scaexception/setting/view';
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    }
+                });
+            });
+            $("#btnReset").click(function () {
+                $('#cmbBookingOrigin').select2().val(null).change();
+                $('#cmbExcludeBookingOrigin').select2().val(null).change();
+                $('#cmbBookingDestination').select2().val(null).change();
+                $('#cmbExcludeBookingDestination').select2().val(null).change();
+                $('#cmbBookingRateType').select2().val(null).change();
+                $('#cmbExcludeBookingRateType').select2().val(null).change();
+                $('#cmbAgentCode').select2().val(null).change();
+                $('#cmbExcludeAgentCode').select2().val(null).change();
+                $('#cmbBookingDestinationCountry').select2().val(null).change();
+                $('#cmbExcludeBookingDestinationCountry').select2().val(null).change();
+                $('#cmbBookingDestinationRegion').select2().val(null).change();
+                $('#cmbExcludeBookingDestinationRegion').select2().val(null).change();
+                $('#cmbBookingOriginCountry').select2().val(null).change();
+                $('#cmbExcludeBookingOriginCountry').select2().val(null).change();
+                $('#cmbBookingOriginSalesArea').select2().val(null).change();
+                $('#cmbExcludeBookingOriginSalesArea').select2().val(null).change();
+                $('#cmbBookingOriginRegion').select2().val(null).change();
+                $('#cmbExcludeBookingOriginRegion').select2().val(null).change();
+                $('#cmbChannel').select2().val(null).change();
+                $('#cmbExcludeChannel').select2().val(null).change();
+                $('#cmbSpecialHandlingCodes').select2().val(null).change();
+                $('#cmbExcludeSpecialHandlingCodes').select2().val(null).change();
+                $('#cmbExcludeBookingOriginSalesArea').select2().val(null).change();
+                $('#cmbProductCode').select2().val(null).change();
+                $('#cmbExcludeProductCode').select2().val(null).change();
+                $('#cmbMetalInfo').select2().val(null).change();
+                $('#cmbExcludeMetalInfo').select2().val(null).change();
+                $("#cmbChargeableWeightCondition").val('');
+                $('#txtChargeableWeight').val(null);
+                $('#txtChargeableWeightFrom').val(null);
+                $('#txtChargeableWeightTo').val(null);
+                $('input[name=groupChargeableWeight]:nth(0)').prop("checked", "checked");
+                $('#txtVolume').val(null);
+                $('#txtVolumeFrom').val(null);
+                $('#txtVolumeTo').val(null);
+                $("#cmbVolumeCondition").val('');
+                $('input[name=groupVolume]:nth(0)').prop("checked", "checked");
+            });
+            $("#btnExceptions").click(function () {
+                window.location.href = '/scaexception/setting/view';
+            });
+            function getArray(elementName) {
+                var selectedValues = $('#' + elementName).select2('data');
+                if (selectedValues && selectedValues.length > 0) {
+                    return $.map(selectedValues, function (selectedValue, i) {
+                        return selectedValue.text;
+                    });
+                }
+                else {
+                    return undefined;
+                }
+            }
+            function getOperators(elementName, property, group) {
+
+                var value = $('#' + elementName).val();
+                if (value === "" || $('input[name="' + group + '"]:checked').val() === "1")
+                    return undefined;
+                var operatorValue = false;
+                switch (value) {
+                    case '0':
+                        if (property === "<")
+                            operatorValue = true;
+                        break;
+                    case '1':
+                        if (property === "=")
+                            operatorValue = true;
+                        break;
+                    case '2':
+                        if (property === "<=")
+                            operatorValue = true;
+                        break;
+                    case '3':
+                        if (property === ">")
+                            operatorValue = true;
+                        break;
+                    case '4':
+                        if (property === ">=")
+                            operatorValue = true;
+                        break;
+                    default:
+                    // code block
+                }
+                return operatorValue;
+            }
+            function getDecimalValue(elementName) {
+                var value = $('#' + elementName).val();
+                value = value ? Number(value) : undefined;
+                return value;
+            }
+            function init() {
+                $('#cmbBookingOrigin').select2();
+                $('#cmbExcludeBookingOrigin').select2();
+                $('#cmbBookingDestination').select2();
+                $('#cmbExcludeBookingDestination').select2();
+                $('#cmbBookingRateType').select2();
+                $('#cmbExcludeBookingRateType').select2();
+                $('#cmbAgentCode').select2();
+                $('#cmbExcludeAgentCode').select2();
+                $('#cmbBookingDestinationCountry').select2();
+                $('#cmbExcludeBookingDestinationCountry').select2();
+                $('#cmbBookingDestinationRegion').select2();
+                $('#cmbExcludeBookingDestinationRegion').select2();
+                $('#cmbBookingOriginCountry').select2();
+                $('#cmbExcludeBookingOriginCountry').select2();
+                $('#cmbBookingOriginSalesArea').select2();
+                $('#cmbExcludeBookingOriginSalesArea').select2();
+                $('#cmbBookingOriginRegion').select2();
+                $('#cmbExcludeBookingOriginRegion').select2();
+                $('#cmbChannel').select2();
+                $('#cmbExcludeChannel').select2();
+                $('#cmbSpecialHandlingCodes').select2();
+                $('#cmbExcludeSpecialHandlingCodes').select2();
+                $('#cmbProductCode').select2();
+                $('#cmbExcludeProductCode').select2();
+                $('#cmbMetalInfo').select2();
+                $('#cmbExcludeMetalInfo').select2();
+                initDropdowns();
+                //if ($('#exceptionId').val() !== "0") {
+                //    $('#cmbBookingOrigin').select2().val(["Christmas Island", "Jamaica"]).change();
+                //}
+                //appendOptions('cmbBookingOrigin', ["Pune", "Mumbia", "Delhi", "Nashik"]);
+            }
+            function initDropdowns() {
+                $.ajax({
+                    'url': '/scaexceptionfield/getall',
+                    'method': 'GET',
+                    'dataType': 'json',
+                    cache: false,
+                    'contentType': 'application/json',
+                    success: function (response) {
+                        //BookingOrigin
+                        var options = filterByDropdownType(1, response);
+                        appendOptions('cmbBookingOrigin', options);
+                        appendOptions('cmbExcludeBookingOrigin', options);
+                        //BookingDestination
+                        options = filterByDropdownType(2, response);
+                        appendOptions('cmbBookingDestination', options);
+                        appendOptions('cmbExcludeBookingDestination', options);
+                        //BookingRateType
+                        options = filterByDropdownType(3, response);
+                        appendOptions('cmbBookingRateType', options);
+                        appendOptions('cmbExcludeBookingRateType', options);
+                        //AgentCode
+                        options = filterByDropdownType(4, response);
+                        appendOptions('cmbAgentCode', options);
+                        appendOptions('cmbExcludeAgentCode', options);
+                        //BookingDestinationCountry
+                        options = filterByDropdownType(5, response);
+                        appendOptions('cmbBookingDestinationCountry', options);
+                        appendOptions('cmbExcludeBookingDestinationCountry', options);
+                        //BookingDestinationRegion
+                        options = filterByDropdownType(6, response);
+                        appendOptions('cmbBookingDestinationRegion', options);
+                        appendOptions('cmbExcludeBookingDestinationRegion', options);
+                        //BookingOriginCountry
+                        options = filterByDropdownType(7, response);
+                        appendOptions('cmbBookingOriginCountry', options);
+                        appendOptions('cmbExcludeBookingOriginCountry', options);
+                        //BookingOriginSalesArea
+                        options = filterByDropdownType(8, response);
+                        appendOptions('cmbBookingOriginSalesArea', options);
+                        appendOptions('cmbExcludeBookingOriginSalesArea', options);
+                        //BookingOriginRegion
+                        options = filterByDropdownType(9, response);
+                        appendOptions('cmbBookingOriginRegion', options);
+                        appendOptions('cmbExcludeBookingOriginRegion', options);
+                        //SpecialHandlingCodes
+                        options = filterByDropdownType(10, response);
+                        appendOptions('cmbSpecialHandlingCodes', options);
+                        appendOptions('cmbExcludeSpecialHandlingCodes', options);
+                        //ProductCode
+                        options = filterByDropdownType(11, response);
+                        appendOptions('cmbProductCode', options);
+                        appendOptions('cmbExcludeProductCode', options);
+                        //MetalInfo
+                        options = filterByDropdownType(12, response);
+                        appendOptions('cmbMetalInfo', options);
+                        appendOptions('cmbExcludeMetalInfo', options);
+                        //Channel
+                        options = filterByDropdownType(13, response);
+                        appendOptions('cmbChannel', options);
+                        appendOptions('cmbExcludeChannel', options);
+
+                        if ($('#exceptionId').val() !== "0") {
+                            getSCAException();
+                        }
+
+
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    }
+                });
+            }
+            function getSCAException() {
+                $.ajax({
+                    'url': '/scaexceptionsetting/getbyid?scaExceptionId=' + $('#exceptionId').val(),
+                    'method': 'GET',
+                    'dataType': 'json',
+                    cache: false,
+                    'contentType': 'application/json',
+                    success: function (response) {
+                        if (response) {
+                            var scaException = response;
+                            setDropdownOptions('cmbBookingOrigin', scaException.bookingOrigin);
+                            setDropdownOptions('cmbExcludeBookingOrigin', scaException.excludeBookingOrigin);
+                            setDropdownOptions('cmbBookingDestination', scaException.bookingDestination);
+                            setDropdownOptions('cmbExcludeBookingDestination', scaException.excludeBookingDestination);
+                            setDropdownOptions('cmbBookingRateType', scaException.bookingRateType);
+                            setDropdownOptions('cmbExcludeBookingRateType', scaException.excludeBookingRateType);
+                            setDropdownOptions('cmbAgentCode', scaException.agentCode);
+                            setDropdownOptions('cmbExcludeAgentCode', scaException.excludeAgentCode);
+                            setDropdownOptions('cmbBookingDestinationCountry', scaException.bookingDestinationCountry);
+                            setDropdownOptions('cmbExcludeBookingDestinationCountry', scaException.excludeBookingDestinationCountry);
+                            setDropdownOptions('cmbBookingDestinationRegion', scaException.bookingDestinationRegion);
+                            setDropdownOptions('cmbExcludeBookingDestinationRegion', scaException.excludeBookingDestinationRegion);
+                            setDropdownOptions('cmbBookingOriginCountry', scaException.bookingOriginCountry);
+                            setDropdownOptions('cmbExcludeBookingOriginCountry', scaException.excludeBookingOriginCountry);
+                            setDropdownOptions('cmbBookingOriginSalesArea', scaException.bookingOriginSalesArea);
+                            setDropdownOptions('cmbExcludeBookingOriginSalesArea', scaException.excludeBookingOriginSalesArea);
+                            setDropdownOptions('cmbBookingOriginRegion', scaException.bookingOriginRegion);
+                            setDropdownOptions('cmbExcludeBookingOriginRegion', scaException.excludeBookingOriginRegion);
+                            setDropdownOptions('cmbChannel', scaException.channel);
+                            setDropdownOptions('cmbExcludeChannel', scaException.excludeChannel);
+                            setDropdownOptions('cmbSpecialHandlingCodes', scaException.specialHandlingCodes);
+                            setDropdownOptions('cmbExcludeSpecialHandlingCodes', scaException.excludeSpecialHandlingCodes);
+                            setDropdownOptions('cmbProductCode', scaException.productCode);
+                            setDropdownOptions('cmbExcludeProductCode', scaException.excludeProductCode);
+                            setDropdownOptions('cmbMetalInfo', scaException.metalInfo);
+                            setDropdownOptions('cmbExcludeMetalInfo', scaException.excludeMetalInfo);
+                            if (!scaException.isChargeableWeightRange) {
+                                $('#txtChargeableWeight').val(scaException.chargeableWeight);
+                                $('input[name=groupChargeableWeight]:nth(0)').prop("checked", "checked");
+                                if (scaException.isChargeableWeightLessThan)
+                                    $("#cmbChargeableWeightCondition").val('0');
+                                else if (scaException.isChargeableWeightEqualTo)
+                                    $("#cmbChargeableWeightCondition").val('1');
+                                else if (scaException.isChargeableWeightLessthanEqualTo)
+                                    $("#cmbChargeableWeightCondition").val('2');
+                                else if (scaException.isChargeableWeightGreaterThan)
+                                    $("#cmbChargeableWeightCondition").val('3');
+                                else if (scaException.isChargeableWeightGreaterThanEqualTo)
+                                $("#cmbChargeableWeightCondition").val('4');
+                            }
+                            else {
+                                $('input[name=groupChargeableWeight]:nth(1)').prop("checked", "checked");
+                                $('#txtChargeableWeightFrom').val(scaException.chargeableWeightRangeFrom);
+                                $('#txtChargeableWeightTo').val(scaException.chargeableWeightRangeTo);
+                            }
+
+                            if (!scaException.isVolumeRange) {
+                                $('#txtVolume').val(scaException.volume);
+                                $('input[name=groupVolume]:nth(0)').prop("checked", "checked");
+                                if (scaException.isVolumeLessThan)
+                                    $("#cmbVolumeCondition").val('0');
+                                else if (scaException.isVolumeEqualTo)
+                                    $("#cmbVolumeCondition").val('1');
+                                else if (scaException.isVolumeLessthanEqualTo)
+                                    $("#cmbVolumeCondition").val('2');
+                                else if (scaException.isVolumeGreaterThan)
+                                    $("#cmbVolumeCondition").val('3');
+                                else if(scaException.isVolumeGreaterThanEqualTo)
+                                $("#cmbVolumeCondition").val('4');
+                             
+                            }
+                            else {
+                                $('input[name=groupVolume]:nth(1)').prop("checked", "checked");
+                                $('#txtVolumeFrom').val(scaException.volumeRangeFrom);
+                                $('#txtVolumeTo').val(scaException.volumeRangeTo);
+                            }
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    }
+                });
+            }
+            function filterByDropdownType(fieldTypeId, data) {
+                var options = [];
+                var result = data.filter(f => f.scaExceptionFieldTypeId === fieldTypeId);
+                if (result && result.length > 0) {
+                    $.each(result, function (index, value) {
+                        options.push(value.name);
+                    })
+                }
+                return options;
+            }
+            function appendOptions(dropdown, options) {
+                var element = $("#" + dropdown);
+                var optionText = "";
+                if (options && options.length > 0) {
+                    $.each(options, function (index, value) {
+                        optionText = optionText + '<option value="' + value + '">' + value + '</option>';
+                    })
+                    element.append(optionText);
+                }
+                element.select2().trigger("change");
+            }
+            function setDropdownOptions(dropdown, options) {
+                if (options) {
+                    options = options.split('|');
+                    $('#' + dropdown).select2().val(options).change();
+                }
+                
+            }
+        })
+
+    </script>
+}

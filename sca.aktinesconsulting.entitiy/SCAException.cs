@@ -8,7 +8,7 @@ namespace sca.aktinesconsulting.entitiy
 {
     public class SCAException
     {
-        public int Id { get; set; }
+        public int? SCAExceptionId { get; set; }
         public string AWB { get; set; }
         public DateTime? BookingCreatedDate { get; set; }
         public DateTime? FlightDepartureDate { get; set; }

@@ -4,6 +4,7 @@ using sca.aktinesconsulting.service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.service.Implementation
 {
@@ -15,9 +16,9 @@ namespace sca.aktinesconsulting.service.Implementation
             _scaExceptionFieldRepository = scaExceptionFieldRepository;
         }
 
-        public IList<SCAExceptionField> GetAll()
+        public async Task<IList<SCAExceptionField>> GetAll()
         {
-            return _scaExceptionFieldRepository.GetAll();
+            return await _scaExceptionFieldRepository.GetAll();
         }
 
     }

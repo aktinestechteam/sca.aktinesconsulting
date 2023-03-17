@@ -63,5 +63,11 @@
     <Build Include="Tables\SCAExceptionFieldTypes.sql" />
     <Build Include="Tables\SCAExceptionFields.sql" />
     <Build Include="Stored Procedures\SCAExceptionFields_GetAll.sql" />
+    <Build Include="Tables\SCAExceptions.sql" />
+    <Build Include="Stored Procedures\SCAExceptions_Add.sql" />
+    <Build Include="Stored Procedures\SCAExceptions_Update.sql" />
+    <Build Include="Stored Procedures\SCAExceptions_Delete.sql" />
+    <Build Include="Stored Procedures\SCAExceptions_GetAll.sql" />
+    <Build Include="Stored Procedures\SCAExceptions_GetById.sql" />
   </ItemGroup>
 </Project>

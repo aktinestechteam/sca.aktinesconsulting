@@ -92,4 +92,9 @@ $(function () {
         }
         toastr.error(message)
     }
+
+    $("#btnExceptions").click(function () {
+        window.location.href = '/scaexception/setting/view';
+    });
+
 });

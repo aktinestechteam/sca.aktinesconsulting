@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.service.Interface
 {
     public interface ISCAExceptionFieldService
     {
-        IList<SCAExceptionField> GetAll();
+        Task<IList<SCAExceptionField>> GetAll();
     }
 }

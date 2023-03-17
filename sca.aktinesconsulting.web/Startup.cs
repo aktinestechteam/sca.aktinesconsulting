@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using sca.aktinesconsulting.entitiy;
 using sca.aktinesconsulting.infrastructure.Implementation;
 using sca.aktinesconsulting.infrastructure.Interface;
+using sca.aktinesconsulting.repository.AutoMapper;
 using sca.aktinesconsulting.repository.Implementation;
 using sca.aktinesconsulting.repository.Interface;
 using sca.aktinesconsulting.service.Implementation;
@@ -23,12 +25,11 @@ namespace sca.aktinesconsulting.web
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-     .SetBasePath(env.ContentRootPath)
-     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-            builder.AddEnvironmentVariables();
-            configuration = builder.Build();
-            Configuration = configuration;
+                 .SetBasePath(env.ContentRootPath)
+                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                        builder.AddEnvironmentVariables();
+            this.Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -36,16 +37,23 @@ namespace sca.aktinesconsulting.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MapperConfigProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
             services.Configure<AppSettings>(options => Configuration.GetSection("AppSettings").Bind(options));
             services.AddTransient<IDatabaseConfig, DatabaseConfig>();
             services.AddTransient<IDatabaseContext, DatabaseContext>();
-            services.AddTransient<IExceptionRepository, ExceptionRepository>();
+            services.AddTransient<ISCAExceptionRepository, SCAExceptionRepository>();
+            services.AddTransient<ISCAExceptionService, SCAExceptionService>();
+            services.AddTransient<ISCAExceptionFieldRepository, SCAExceptionFieldRepository>();
+            services.AddTransient<ISCAExceptionFieldService, SCAExceptionFieldService>();
             services.AddTransient<IFileService, FileService>();
-            services.AddTransient<IExceptionService, ExceptionService>();
-
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-   
-                //.AddRazorRuntimeCompilation();
+
+            //.AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

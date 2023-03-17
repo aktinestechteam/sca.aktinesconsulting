@@ -14,8 +14,8 @@ namespace sca.aktinesconsulting.web.Controllers
     public class SCAExceptionController : Controller
     {
         private readonly IFileService _fileService;
-        private readonly IExceptionService _exceptionService;
-        public SCAExceptionController(IFileService fileService, IExceptionService exceptionService)
+        private readonly ISCAExceptionService _exceptionService;
+        public SCAExceptionController(IFileService fileService, ISCAExceptionService exceptionService)
         {
             _fileService = fileService;
             _exceptionService = exceptionService;
@@ -24,6 +24,7 @@ namespace sca.aktinesconsulting.web.Controllers
         {
             return View();
         }
+     
 
         [HttpPost]
         public async Task<string> ProcessBookingEntry([FromForm] IFormFile file)
