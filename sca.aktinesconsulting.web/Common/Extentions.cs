@@ -14,6 +14,12 @@ namespace sca.aktinesconsulting.web.Common
             else
                 return null;
         }
+        public static DateTime StringToDate(this string args)
+        {
+            var date = args.Split("-");
+            return new DateTime(Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2]));
+        }
+
     }
   
 }

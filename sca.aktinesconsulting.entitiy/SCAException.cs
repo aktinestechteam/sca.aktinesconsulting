@@ -79,6 +79,7 @@ namespace sca.aktinesconsulting.entitiy
         public DateTime? EndDate { get; set; }        
         public string Description { get; set; }
 
-
+        public string StartDateText => StartDate?.ToString("dd MMM yyyy");
+        public string EndDateText => EndDate?.ToString("dd MMM yyyy");
     }
 }

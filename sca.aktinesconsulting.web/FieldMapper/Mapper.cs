@@ -15,8 +15,8 @@ namespace sca.aktinesconsulting.web.FieldMapper
         {
             var scaException = new SCAException();
             scaException.SCAExceptionId = source.SCAExceptionId;
-            scaException.StartDate= source.StartDate;
-            scaException.EndDate = source.EndDate;
+            scaException.StartDate = source.StartDateText.StringToDate();
+            scaException.EndDate = source.EndDateText.StringToDate();
             scaException.Description = source.Description;
             //String Field
             scaException.BookingOrigin = source.BookingOrigins.JoinString();

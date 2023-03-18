@@ -24,172 +24,250 @@
             </div>
             <div class="portlet-body">
                 <div class="col-md-12">
+
+                    <div class="row" style="padding:10px">
+
+                        <div class="row">
+                            @*Start Date*@
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%">Start Date</span>
+                                    <input type="text" class="form-control" placeholder="Select date" id="dpStartDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%">End Date</span>
+                                    <input type="text" class="form-control" placeholder="Select date" id="dpEndDate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="row" style="padding:10px">
                         @*Booking Origin*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Origin
-                            <select id="cmbBookingOrigin" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Origin</span>
+                                <select id="cmbBookingOrigin" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Booking Origin
-                            <select id="cmbExcludeBookingOrigin" data-placeholder="Choose anything" multiple style="background:#FAD5A5">
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Booking Origin</span>
+                                <select id="cmbExcludeBookingOrigin" data-placeholder="Choose anything" multiple style="background:#FAD5A5">
+                                </select>
+                            </div>
                         </div>
 
+                    </div>
+                    <div class="row" style="padding:10px">
                         @*Booking Destination*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Destination
-                            <select id="cmbBookingDestination" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Destination</span>
+                                <select id="cmbBookingDestination" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Booking Destination
-                            <select id="cmbExcludeBookingDestination" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%"> Exclude Booking Destination</span>
+                                <select id="cmbExcludeBookingDestination" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row" style="padding:10px">
                         @*Booking Rate Type*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Rate Type
-                            <select id="cmbBookingRateType" data-placeholder="Choose anything" multiple>
-                            </select>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Booking Rate Type
-                            <select id="cmbExcludeBookingRateType" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Rate Type</span>
+                                <select id="cmbBookingRateType" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
 
-                        @*Agent Code*@
-                        <div class="col-md-3 col-sm-6">
-                            Agent Code
-                            <select id="cmbAgentCode" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Booking Rate Type</span>
+                                <select id="cmbExcludeBookingRateType" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Agent Code
-                            <select id="cmbExcludeAgentCode" data-placeholder="Choose anything" multiple>
-                            </select>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        @*Agent Code*@
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Agent Code</span>
+                                <select id="cmbAgentCode" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Agent Code</span>
+                                <select id="cmbExcludeAgentCode" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row" style="padding:10px">
                         @*Booking Destination Country*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Destination Country
-                            <select id="cmbBookingDestinationCountry" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Destination Country</span>
+                                <select id="cmbBookingDestinationCountry" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Booking Destination Country
-                            <select id="cmbExcludeBookingDestinationCountry" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Booking Destination Country</span>
+                                <select id="cmbExcludeBookingDestinationCountry" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-
+                    </div>
+                    <div class="row" style="padding:10px">
                         @*Booking Destination Region*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Destination Region
-                            <select id="cmbBookingDestinationRegion" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Destination Region</span>
+                                <select id="cmbBookingDestinationRegion" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude  Booking Destination Region
-                            <select id="cmbExcludeBookingDestinationRegion" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude  Booking Destination Region</span>
+                                <select id="cmbExcludeBookingDestinationRegion" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row" style="padding:10px">
                         @*Booking Origin Country*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Origin Country
-                            <select id="cmbBookingOriginCountry" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Origin Country</span>
+                                <select id="cmbBookingOriginCountry" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Booking Origin Country
-                            <select id="cmbExcludeBookingOriginCountry" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Booking Origin Country</span>
+                                <select id="cmbExcludeBookingOriginCountry" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-
+                    </div>
+                    <div class="row" style="padding:10px">
                         @*Booking Origin Sales Area*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Origin Sales Area
-                            <select id="cmbBookingOriginSalesArea" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Origin Sales Area</span>
+                                <select id="cmbBookingOriginSalesArea" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Booking Origin Sales Area
-                            <select id="cmbExcludeBookingOriginSalesArea" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Booking Origin Sales Area</span>
+                                <select id="cmbExcludeBookingOriginSalesArea" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row" style="padding:10px">
                         @*BookingOriginRegion*@
-                        <div class="col-md-3 col-sm-6">
-                            Booking Origin Region
-                            <select id="cmbBookingOriginRegion" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Booking Origin Region</span>
+                                <select id="cmbBookingOriginRegion" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Booking Origin Region
-                            <select id="cmbExcludeBookingOriginRegion" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Booking Origin Region</span>
+                                <select id="cmbExcludeBookingOriginRegion" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-
+                    </div>
+                    <div class="row" style="padding:10px">
                         @*Channel*@
-                        <div class="col-md-3 col-sm-6">
-                            Channel
-                            <select id="cmbChannel" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Channel</span>
+                                <select id="cmbChannel" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Channel
-                            <select id="cmbExcludeChannel" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Channel</span>
+                                <select id="cmbExcludeChannel" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row" style="padding:10px">
                         @*SpecialHandlingCodes*@
-                        <div class="col-md-3 col-sm-6">
-                            SpecialHandlingCodes
-                            <select id="cmbSpecialHandlingCodes" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%"> Special Handling Codes</span>
+                                <select id="cmbSpecialHandlingCodes" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude SpecialHandling Codes
-                            <select id="cmbExcludeSpecialHandlingCodes" data-placeholder="Choose anything" multiple>
-                            </select>
-                        </div>
-
-                        @*ProductCode*@
-                        <div class="col-md-3 col-sm-6">
-                            ProductCode
-                            <select id="cmbProductCode" data-placeholder="Choose anything" multiple>
-                            </select>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude Product Code
-                            <select id="cmbExcludeProductCode" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Special Handling Codes</span>
+                                <select id="cmbExcludeSpecialHandlingCodes" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row" style="padding:10px">
-                        @*MetalInfo*@
-                        <div class="col-md-3 col-sm-6">
-                            MetalInfo
-                            <select id="cmbMetalInfo" data-placeholder="Choose anything" multiple>
-                            </select>
+                        @*ProductCode*@
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Product Code</span>
+                                <select id="cmbProductCode" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            Exclude MetalInfo
-                            <select id="cmbExcludeMetalInfo" data-placeholder="Choose anything" multiple>
-                            </select>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Product Code</span>
+                                <select id="cmbExcludeProductCode" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
                         </div>
-
-
                     </div>
-
+                    <div class="row" style="padding:10px">
+                        @*Metal Info*@
+                        <div class="col-md-6 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:30%">Metal Info</span>
+                                <select id="cmbMetalInfo" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="exclude-field">
+                                <span style="min-width:30%">Exclude Metal Info</span>
+                                <select id="cmbExcludeMetalInfo" data-placeholder="Choose anything" multiple>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row" style="padding:10px">
                         @*Chargeable Weight*@
@@ -273,6 +351,17 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row" style="padding:10px">
+                        @*Metal Info*@
+                        <div class="col-md-12 col-sm-12">
+                            <div style="display:flex">
+                                <span style="min-width:26%">Rule Description</span>
+                                <textarea class="form-control" id="txtDescription" rows="3" style="background: #FEF5AC"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     @{
@@ -291,14 +380,26 @@
         </div>
     </div>
 </div>
-
+@section Styles{
+<style>
+    .exclude-field {
+        display: flex;
+        background: #B3005E !important;
+        color: #fff !important;
+        padding: 10px !important;
+    }
+</style>
+    }
 @section Scripts {
     <script>
         $(function () {
             init();
             $("#btnSave").click(function () {
                 var params = {
-                    scaExceptionId: $('#exceptionId').val() ? Number($('#exceptionId').val()) : 0 ,
+                    startDateText: dateToString($("#dpStartDate").datepicker('getDate')),
+                    endDateText: dateToString($("#dpEndDate").datepicker('getDate')),
+                    description: $('#txtDescription').val(),
+                    scaExceptionId: $('#exceptionId').val() ? Number($('#exceptionId').val()) : 0,
                     bookingOrigins: getArray('cmbBookingOrigin'),
                     excludeBookingOrigins: getArray('cmbExcludeBookingOrigin'),
                     bookingDestinations: getArray('cmbBookingDestination'),
@@ -358,6 +459,9 @@
                 });
             });
             $("#btnReset").click(function () {
+                $("#dpStartDate").datepicker('setDate', null),
+                $("#dpEndDate").datepicker('setDate', null),
+                $('#txtDescription').val('');
                 $('#cmbBookingOrigin').select2().val(null).change();
                 $('#cmbExcludeBookingOrigin').select2().val(null).change();
                 $('#cmbBookingDestination').select2().val(null).change();
@@ -430,7 +534,7 @@
                             operatorValue = true;
                         break;
                     case '3':
-                        if (property === ">")
+                        if (property === ">")   
                             operatorValue = true;
                         break;
                     case '4':
@@ -448,6 +552,8 @@
                 return value;
             }
             function init() {
+                $("#dpStartDate").datepicker({ orientation: 'left', autoclose: !0 }),
+                $("#dpEndDate").datepicker({ orientation: 'left', autoclose: !0 }),
                 $('#cmbBookingOrigin').select2();
                 $('#cmbExcludeBookingOrigin').select2();
                 $('#cmbBookingDestination').select2();
@@ -561,6 +667,10 @@
                     success: function (response) {
                         if (response) {
                             var scaException = response;
+                            console.log(scaException.startDate);
+                            $("#dpStartDate").datepicker('setDate', new Date(scaException.startDate)),
+                            $("#dpEndDate").datepicker('setDate', new Date(scaException.endDate)),
+                            $('#txtDescription').val(scaException.description);
                             setDropdownOptions('cmbBookingOrigin', scaException.bookingOrigin);
                             setDropdownOptions('cmbExcludeBookingOrigin', scaException.excludeBookingOrigin);
                             setDropdownOptions('cmbBookingDestination', scaException.bookingDestination);
@@ -599,7 +709,7 @@
                                 else if (scaException.isChargeableWeightGreaterThan)
                                     $("#cmbChargeableWeightCondition").val('3');
                                 else if (scaException.isChargeableWeightGreaterThanEqualTo)
-                                $("#cmbChargeableWeightCondition").val('4');
+                                    $("#cmbChargeableWeightCondition").val('4');
                             }
                             else {
                                 $('input[name=groupChargeableWeight]:nth(1)').prop("checked", "checked");
@@ -618,9 +728,9 @@
                                     $("#cmbVolumeCondition").val('2');
                                 else if (scaException.isVolumeGreaterThan)
                                     $("#cmbVolumeCondition").val('3');
-                                else if(scaException.isVolumeGreaterThanEqualTo)
-                                $("#cmbVolumeCondition").val('4');
-                             
+                                else if (scaException.isVolumeGreaterThanEqualTo)
+                                    $("#cmbVolumeCondition").val('4');
+
                             }
                             else {
                                 $('input[name=groupVolume]:nth(1)').prop("checked", "checked");
@@ -659,7 +769,11 @@
                     options = options.split('|');
                     $('#' + dropdown).select2().val(options).change();
                 }
-                
+
+            }
+
+            function dateToString(date) {
+                return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
             }
         })
 
