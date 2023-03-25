@@ -25,3 +25,5 @@
 /sca.aktinesconsulting.web/bin/Debug/netcoreapp3.1
 /sca.aktinesconsulting.database/bin/Debug
 /sca.aktinesconsulting.database/obj/Debug
+/sca.aktinesconsulting.database/sca.aktinesconsulting.database.dbmdl
+/sca.aktinesconsulting.database/sca.aktinesconsulting.database.jfm

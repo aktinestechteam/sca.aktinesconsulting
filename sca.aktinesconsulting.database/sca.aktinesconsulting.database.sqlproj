@@ -69,5 +69,7 @@
     <Build Include="Stored Procedures\SCAExceptions_Delete.sql" />
     <Build Include="Stored Procedures\SCAExceptions_GetAll.sql" />
     <Build Include="Stored Procedures\SCAExceptions_GetById.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Stored Procedures\Users_GetByEmail.sql" />
   </ItemGroup>
 </Project>

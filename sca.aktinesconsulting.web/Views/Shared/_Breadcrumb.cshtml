@@ -15,7 +15,7 @@
 
                     <span class="breadcrumb-text">Dashboard</span>
                 </a>
-                <a href="#" class="breadcrumb-item"><span class="breadcrumb-text">@ViewData["BreadcrumbHeader"]</span> </a><a href="#" class="breadcrumb-item"><span class="breadcrumb-text">Process</span></a>
+                <a href="#" class="breadcrumb-item"><span class="breadcrumb-text">@ViewData["BreadcrumbHeader"]</span> </a><a href="#" class="breadcrumb-item"><span class="breadcrumb-text">@ViewData["BreadcrumbPage"] </span></a>
             </div>
         </div>
         <div class="header-wrap">
@@ -24,7 +24,7 @@
             </div>
             <div class="dropdown" style="padding-left: 10px;">
                 <button class="btn btn-flat-primary widget13" data-bs-toggle="dropdown" fdprocessedid="ncady">
-                    <div class="widget13-text">Hi <strong>User</strong></div>
+                    <div class="widget13-text">Hi <strong>@User.Identity.Name</strong></div>
                     <div class="avatar avatar-info widget13-avatar">
                         <div class="avatar-display"><i class="fa fa-user-alt"></i></div>
                     </div>
@@ -39,13 +39,13 @@
                                     </div>
                                 </div>
                                 <div class="rich-list-content">
-                                    <h3 class="rich-list-title text-white">Charlie Stone</h3>
-                                    <span class="rich-list-subtitle text-white">admin@blueupcode.com</span>
+                                    @*<h3 class="rich-list-title text-white">Charlie Stone</h3>*@
+                                    <span class="rich-list-subtitle text-white">@User.Claims.First().Value</span>
                                 </div>
                                 <div class="rich-list-append"><span class="badge badge-label-light fs-6">9+</span></div>
                             </div>
                         </div>
-                        <div class="portlet-body p-0">
+                        <div class="portlet-body p-0" style="display:none">
                             <div class="grid-nav grid-nav-flush grid-nav-action grid-nav-no-rounded">
                                 <div class="grid-nav-row">
                                     <a href="#" class="grid-nav-item">
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="portlet-footer portlet-footer-bordered rounded-0"><button class="btn btn-label-danger">Sign out</button></div>
+                        <div class="portlet-footer portlet-footer-bordered rounded-0"><button class="btn btn-label-danger" onclick="window.location='@Url.Action( "Logout", "Account")'">Sign out</button></div>
                     </div>
                 </div>
             </div>

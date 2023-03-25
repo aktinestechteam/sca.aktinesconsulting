@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 using sca.aktinesconsulting.service.Implementation;
 using sca.aktinesconsulting.service.Interface;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace sca.aktinesconsulting.web.Controllers
 {
+    [Authorize]
     public class SCAExceptionController : Controller
     {
         private readonly IFileService _fileService;

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using sca.aktinesconsulting.entitiy;
 using sca.aktinesconsulting.service.Interface;
 using sca.aktinesconsulting.web.Common;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.web.Controllers
 {
+    [Authorize]
     public class SCAExceptionSettingController : Controller
     {
         private readonly ISCAExceptionService _scaExceptionService;

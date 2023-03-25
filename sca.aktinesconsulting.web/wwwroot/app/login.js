@@ -29,13 +29,13 @@
         errorPlacement: function (e, i) {
             e.addClass("invalid-feedback"), i.closest(".validation-container").append(e)
         },
-        submitHandler: function (e) {
-            submitForm();
-        }
+        //submitHandler: function (e) {
+        //    submitForm();
+        //}
     })
 
-    function submitForm() {
-        window.location.href = '/scaexception/index';
-    }
+    //function submitForm() {
+    //    window.location.href = '/scaexception/index';
+    //}
 
 });
