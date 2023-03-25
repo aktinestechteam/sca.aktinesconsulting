@@ -15,13 +15,14 @@ namespace sca.aktinesconsulting.web.Controllers
     {
         private readonly ISCAExceptionService _scaExceptionService;
 
-        public SCAExceptionSettingController(ISCAExceptionService scaExceptionService) {
+        public SCAExceptionSettingController(ISCAExceptionService scaExceptionService)
+        {
             _scaExceptionService = scaExceptionService;
         }
 
         [Route("/scaexception/setting/add")]
         [Route("/scaexception/setting/update/{exceptionId?}")]
-        public IActionResult Index(int exceptionId=0)
+        public IActionResult Index(int exceptionId = 0)
         {
             ViewData["exceptionId"] = exceptionId;
             return View("AddUpdate");
@@ -48,14 +49,31 @@ namespace sca.aktinesconsulting.web.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddUpdate([FromBody] SCAExceptionModal modal)
+        public async Task<string> AddUpdate([FromBody] SCAExceptionModal modal)
         {
             var entity = Mapper.MapSCAException(modal);
-            if (modal.SCAExceptionId != 0)
-                await _scaExceptionService.Update(entity);
-            else
-                await _scaExceptionService.Add(entity);
-            return Ok();
+            var bookingEntry = Mapper.MapBookingEntry(entity);
+            var scaException = await _scaExceptionService.Validate(bookingEntry);
+            var isExceptionFound = false;
+            int?[] exceptionRules = null;
+            if (scaException.Exceptions != null && scaException.Exceptions.Count > 0)
+            {
+                if (
+                    (modal.SCAExceptionId != 0 && scaException.Exceptions[0].SCAExceptionId != modal.SCAExceptionId)
+                    || modal.SCAExceptionId == 0)
+                {
+                    exceptionRules = scaException.Exceptions.Select(e => e.SCAExceptionId).ToArray();
+                    isExceptionFound = true;
+                }
+            }
+            if (!isExceptionFound)
+            {
+                if (modal.SCAExceptionId != 0)
+                    await _scaExceptionService.Update(entity);
+                else
+                    await _scaExceptionService.Add(entity);
+            }
+            return exceptionRules == null || !isExceptionFound ? null : string.Join(",", exceptionRules);
         }
 
 

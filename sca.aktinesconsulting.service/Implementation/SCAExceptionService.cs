@@ -42,11 +42,22 @@ namespace sca.aktinesconsulting.service.Implementation
         {
             return await _scaExceptionRepository.Delete(scaExceptionId, updatedBy);
         }
+
+        public async Task<BookingEntry> Validate(BookingEntry bookingEntry)
+        {
+            var scaExceptions = (await _scaExceptionRepository.GetAll()).ToList();
+            var pipeline = BuildPipeLine(scaExceptions);
+            pipeline.SetInput(bookingEntry);
+            var result = pipeline.Run();
+            return result;
+        }
+
         public DataTable Identify(DataTable dt)
         {
             ReplaceColumnNames(dt);
             List<BookingEntry> bookingEntries = ConvertDataTable<BookingEntry>(dt);
-            var pipeline = BuildPipeLine();
+            var scaExceptions = GetExceptions().Result;
+            var pipeline = BuildPipeLine(scaExceptions);
             foreach (var bookingEntry in bookingEntries)
             {
                 pipeline.SetInput(bookingEntry);
@@ -54,9 +65,8 @@ namespace sca.aktinesconsulting.service.Implementation
             }
             return CreateOutputTable(dt,bookingEntries);
         }
-        private Pipeline BuildPipeLine()
+        private Pipeline BuildPipeLine(List<SCAException> scaExceptions)
         {
-            var scaExceptions = GetExceptions();
             Pipeline pipeline = new Pipeline();
             //Include
             pipeline.Add(new StartDateEndDatePipeStream());
@@ -101,7 +111,7 @@ namespace sca.aktinesconsulting.service.Implementation
             pipeline.SetRules(scaExceptions.ToList());
             return pipeline;
         }
-        private List<SCAException>GetExceptions()
+        private List<SCAException>GetExceptions_old()
         {
             //var exceptions=_scaExceptionRepository.GetAll().Result;
             return new List<SCAException>()
@@ -147,6 +157,10 @@ namespace sca.aktinesconsulting.service.Implementation
                     SpecialHandlingCodes="BSU|BSL|BSC|CPU|CPL",
                     Description="BSA (SHC - BSU or BSL/BSC) and CPA (SHC - CPU or CPL) is exempted"},
             };
+        }
+        private async Task<List<SCAException>> GetExceptions()
+        {
+            return (await _scaExceptionRepository.GetAll()).ToList();
         }
         private void ReplaceColumnNames(DataTable dt)
         {

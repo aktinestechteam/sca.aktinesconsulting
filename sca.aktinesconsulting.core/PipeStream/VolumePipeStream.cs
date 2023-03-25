@@ -14,22 +14,22 @@ namespace sca.aktinesconsulting.core.PipeStream
             if (scaRules == null || scaRules.Count == 0)
                 return null;
             var outputStream = new List<SCAException>();
-            outputStream = scaRules.Where(r => (r.Volume == null || r.IsVolumeLessThan == null) || (
+            outputStream = scaRules.Where(r => (r.Volume == null || string.IsNullOrEmpty(bookingEntry.Volume) || r.IsVolumeLessThan == null) || (
              r.IsVolumeLessThan == true && Convert.ToDecimal(bookingEntry.Volume) < r.Volume)).ToList();
 
-            outputStream = outputStream.Where(r => (r.Volume == null || r.IsVolumeLessthanEqualTo == null) || (
+            outputStream = outputStream.Where(r => (r.Volume == null || string.IsNullOrEmpty(bookingEntry.Volume) || r.IsVolumeLessthanEqualTo == null) || (
              r.IsVolumeLessthanEqualTo == true && Convert.ToDecimal(bookingEntry.Volume) <= r.Volume)).ToList();
 
-            outputStream = outputStream.Where(r => (r.Volume == null || r.IsVolumeEqualTo == null) || (
+            outputStream = outputStream.Where(r => (r.Volume == null || string.IsNullOrEmpty(bookingEntry.Volume) || r.IsVolumeEqualTo == null) || (
             r.IsVolumeEqualTo == true && Convert.ToDecimal(bookingEntry.Volume) == r.Volume)).ToList();
 
-            outputStream = outputStream.Where(r => (r.Volume == null || r.IsVolumeGreaterThan == null) || (
+            outputStream = outputStream.Where(r => (r.Volume == null || string.IsNullOrEmpty(bookingEntry.Volume) || r.IsVolumeGreaterThan == null) || (
             r.IsVolumeGreaterThan == true && Convert.ToDecimal(bookingEntry.Volume) > r.Volume)).ToList();
 
-            outputStream= outputStream.Where(r => (r.Volume == null || r.IsVolumeGreaterThanEqualTo == null) || (
+            outputStream= outputStream.Where(r => (r.Volume == null || string.IsNullOrEmpty(bookingEntry.Volume) || r.IsVolumeGreaterThanEqualTo == null) || (
             r.IsVolumeGreaterThanEqualTo == true && Convert.ToDecimal(bookingEntry.Volume) >= r.Volume)).ToList();
 
-            outputStream= outputStream.Where(r => (
+            outputStream= outputStream.Where(r => (string.IsNullOrEmpty(bookingEntry.Volume) ||
             (r.VolumeRangeFrom == null && r.VolumeRangeTo == null) || r.IsVolumeRange == null) || 
             ((r.IsVolumeRange==true &&  Convert.ToDecimal(bookingEntry.Volume) >= r.VolumeRangeFrom) &&
             Convert.ToDecimal(bookingEntry.Volume) <= r.VolumeRangeTo)).ToList();

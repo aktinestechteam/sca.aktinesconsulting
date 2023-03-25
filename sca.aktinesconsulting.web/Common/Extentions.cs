@@ -20,6 +20,14 @@ namespace sca.aktinesconsulting.web.Common
             return new DateTime(Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2]));
         }
 
+        public static string NullToEmpty(this string args)
+        {
+            if (string.IsNullOrEmpty(args))
+                return string.Empty;
+            else
+                return args;
+        }
+
     }
   
 }

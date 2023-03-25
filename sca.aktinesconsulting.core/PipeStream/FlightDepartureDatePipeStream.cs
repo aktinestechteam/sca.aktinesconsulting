@@ -14,9 +14,9 @@ namespace sca.aktinesconsulting.core.PipeStream
             if (scaRules == null || scaRules.Count == 0)
                 return null;
             var outputStream = scaRules.Where(r =>
-             (r.StartDate == null || Convert.ToDateTime(bookingEntry.FlightDepartureDate).Date >= Convert.ToDateTime(r.StartDate).Date)
+             (r.StartDate == null || string.IsNullOrEmpty(bookingEntry.FlightDepartureDate) ||  Convert.ToDateTime(bookingEntry.FlightDepartureDate).Date >= Convert.ToDateTime(r.StartDate).Date)
             &&
-             (r.EndDate == null || Convert.ToDateTime(bookingEntry.FlightDepartureDate).Date <= Convert.ToDateTime(r.EndDate).Date)
+             (r.EndDate == null || string.IsNullOrEmpty(bookingEntry.FlightDepartureDate) || Convert.ToDateTime(bookingEntry.FlightDepartureDate).Date <= Convert.ToDateTime(r.EndDate).Date)
             ).ToList();
             return outputStream.Count > 0 ? outputStream : null;
         }

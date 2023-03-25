@@ -15,22 +15,22 @@ namespace sca.aktinesconsulting.core.PipeStream
                 return null;
 
             var outputStream = new List<SCAException>();
-            outputStream = scaRules.Where(r => (r.ChargeableWeight == null || r.IsChargeableWeightLessThan == null) || (
+            outputStream = scaRules.Where(r => (r.ChargeableWeight == null || string.IsNullOrEmpty(bookingEntry.ChargeableWeight) || r.IsChargeableWeightLessThan == null) || (
               r.IsChargeableWeightLessThan == true && Convert.ToDecimal(bookingEntry.ChargeableWeight) < r.ChargeableWeight)).ToList();
 
-            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || r.IsChargeableWeightLessthanEqualTo == null) || (
+            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || string.IsNullOrEmpty(bookingEntry.ChargeableWeight) || r.IsChargeableWeightLessthanEqualTo == null) || (
              r.IsChargeableWeightLessthanEqualTo == true && Convert.ToDecimal(bookingEntry.ChargeableWeight) <= r.ChargeableWeight)).ToList();
 
-            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || r.IsChargeableWeightEqualTo == null) || (
+            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || string.IsNullOrEmpty(bookingEntry.ChargeableWeight) || r.IsChargeableWeightEqualTo == null) || (
             r.IsChargeableWeightEqualTo == true && Convert.ToDecimal(bookingEntry.ChargeableWeight) == r.ChargeableWeight)).ToList();
 
-            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || r.IsChargeableWeightGreaterThan == null) || (
+            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || string.IsNullOrEmpty(bookingEntry.ChargeableWeight) || r.IsChargeableWeightGreaterThan == null) || (
             r.IsChargeableWeightGreaterThan == true && Convert.ToDecimal(bookingEntry.ChargeableWeight) > r.ChargeableWeight)).ToList();
 
-            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || r.IsChargeableWeightGreaterThanEqualTo == null) || (
+            outputStream = outputStream.Where(r => (r.ChargeableWeight == null || string.IsNullOrEmpty(bookingEntry.ChargeableWeight) || r.IsChargeableWeightGreaterThanEqualTo == null) || (
              r.IsChargeableWeightGreaterThanEqualTo == true && Convert.ToDecimal(bookingEntry.ChargeableWeight) >= r.ChargeableWeight)).ToList();
 
-            outputStream = outputStream.Where(r => (
+            outputStream = outputStream.Where(r => (string.IsNullOrEmpty(bookingEntry.ChargeableWeight) ||
              (r.ChargeableWeightRangeFrom == null && r.ChargeableWeightRangeTo == null) || r.IsChargeableWeightRange == null) ||
              ((r.IsChargeableWeightRange == true && Convert.ToDecimal(bookingEntry.ChargeableWeight) >= r.ChargeableWeightRangeFrom) &&
              Convert.ToDecimal(bookingEntry.ChargeableWeight) <= r.ChargeableWeightRangeTo)).ToList();

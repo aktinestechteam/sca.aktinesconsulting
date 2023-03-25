@@ -70,7 +70,38 @@ namespace sca.aktinesconsulting.web.FieldMapper
 
             return scaException;
         }
+        public static BookingEntry MapBookingEntry(SCAException scaException)
+        {
+            var bookingEntry = new BookingEntry();
+            bookingEntry.AWB = scaException.AWB.NullToEmpty();
+            bookingEntry.BookingCreatedDate = scaException.StartDate==null?string.Empty: scaException.StartDate.ToString();
+            bookingEntry.FlightDepartureDate = null;
+            bookingEntry.BookingOrigin = scaException.BookingOrigin.NullToEmpty();
+            bookingEntry.BookingDestination = scaException.BookingDestination.NullToEmpty();
+            bookingEntry.BookingRateType = scaException.BookingRateType.NullToEmpty();
+            bookingEntry.Currency = scaException.Currency.NullToEmpty();
+            bookingEntry.AgentCode = scaException.AgentCode.NullToEmpty();
+            bookingEntry.AgentName = scaException.AgentName.NullToEmpty();
+            bookingEntry.BookingDestinationCountry = scaException.BookingDestinationCountry.NullToEmpty();
+            bookingEntry.BookingDestinationRegion = scaException.BookingDestinationRegion.NullToEmpty();
+            bookingEntry.BookingLastUpdatedBy = scaException.BookingLastUpdatedBy.NullToEmpty();
+            bookingEntry.BookingOriginCountry = scaException.BookingOriginCountry.NullToEmpty();
+            bookingEntry.BookingOriginSalesArea = scaException.BookingOriginSalesArea.NullToEmpty();
+            bookingEntry.BookingOriginRegion = scaException.BookingOriginRegion.NullToEmpty();
+            bookingEntry.BookingReference = scaException.BookingReference.NullToEmpty();
+            bookingEntry.Channel = scaException.Channel.NullToEmpty();
+            bookingEntry.SpecialHandlingCodes = scaException.SpecialHandlingCodes.NullToEmpty();
+            bookingEntry.ChargeableWeight = scaException.ChargeableWeight==null?string.Empty:scaException.ChargeableWeight.ToString();
+            bookingEntry.RevGBP = scaException.RevGBP == null ? string.Empty : scaException.RevGBP.ToString();
+            bookingEntry.YieldGBP = scaException.YieldGBP == null ? string.Empty : scaException.RevGBP.ToString();
+            bookingEntry.ProductCode = scaException.ProductCode.NullToEmpty();
+            bookingEntry.ProductName = scaException.ProductName.NullToEmpty();
+            bookingEntry.FlightNumber = scaException.FlightNumber.NullToEmpty();
+            bookingEntry.MetalInfo = scaException.MetalInfo.NullToEmpty();
+            bookingEntry.Volume = scaException.Volume == null ? null : scaException.Volume.ToString();
 
+            return bookingEntry;
+        }
 
 
 
