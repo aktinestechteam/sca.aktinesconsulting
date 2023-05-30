@@ -45,7 +45,9 @@ namespace sca.aktinesconsulting.web.Controllers
                 //Create the identity for the user  
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Email, email),
-                    new Claim(ClaimTypes.Name, user.FirstName)
+                    new Claim(ClaimTypes.Name, user.FirstName),
+                    new Claim(ClaimTypes.Sid, user.UserId.ToString())
+
                 }, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
                 var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);

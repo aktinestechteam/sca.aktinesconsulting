@@ -81,5 +81,12 @@ namespace sca.aktinesconsulting.entitiy
 
         public string StartDateText => StartDate?.ToString("dd MMM yyyy");
         public string EndDateText => EndDate?.ToString("dd MMM yyyy");
+
+
+        public DateTime? CreatedOn { get; set; }
+        public int? CreatedBy { get; set; }
+        public DateTime? UpdatedOn { get; set; }
+        public int? UpdatedBy { get; set; }
+
     }
 }

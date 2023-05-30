@@ -53,6 +53,7 @@ namespace sca.aktinesconsulting.web.Controllers
         [HttpPost]
         public async Task<string> AddUpdate([FromBody] SCAExceptionModal modal)
         {
+           
             var entity = Mapper.MapSCAException(modal);
             var bookingEntry = Mapper.MapBookingEntry(entity);
             var scaException = await _scaExceptionService.Validate(bookingEntry);
@@ -60,6 +61,7 @@ namespace sca.aktinesconsulting.web.Controllers
             int?[] exceptionRules = null;
             if (scaException.Exceptions != null && scaException.Exceptions.Count > 0)
             {
+              
                 if (
                     (modal.SCAExceptionId != 0 && scaException.Exceptions[0].SCAExceptionId != modal.SCAExceptionId)
                     || modal.SCAExceptionId == 0)
@@ -71,9 +73,17 @@ namespace sca.aktinesconsulting.web.Controllers
             if (!isExceptionFound)
             {
                 if (modal.SCAExceptionId != 0)
+                {
+                    entity.UpdatedBy = HttpContext.User.GetUserId();
+                    entity.UpdatedOn = DateTime.UtcNow;
                     await _scaExceptionService.Update(entity);
+                }
                 else
+                {
+                    entity.CreatedBy = HttpContext.User.GetUserId();
+                    entity.CreatedOn = DateTime.UtcNow;
                     await _scaExceptionService.Add(entity);
+                }
             }
             return exceptionRules == null || !isExceptionFound ? null : string.Join(",", exceptionRules);
         }
@@ -83,7 +93,9 @@ namespace sca.aktinesconsulting.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete([FromQuery] int scaExceptionId)
         {
-            await _scaExceptionService.Delete(scaExceptionId, 1);
+            var userId = HttpContext.User.GetUserId();
+            if (userId != null)
+                await _scaExceptionService.Delete(scaExceptionId, (int)userId);
             return Ok();
         }
 

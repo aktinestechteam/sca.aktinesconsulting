@@ -28,7 +28,7 @@ namespace sca.aktinesconsulting.repository.Implementation
                 {
                     var queryParameters = new  { Email = email,Password= password };
                     var result = (await SqlMapper.QueryAsync<User>(con, "Users_GetByEmail", queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).FirstOrDefault();
-                    return result;
+                        return result;
                 }
             }
             catch (Exception)

@@ -11,7 +11,7 @@ namespace sca.aktinesconsulting.infrastructure.Implementation
 {
     public class DatabaseConfig : IDatabaseConfig
     {
-        private readonly IOptions<AppSettings> _setting;
+        private readonly IOptions<AppSettings> _setting;    
 
         public DatabaseConfig(IOptions<AppSettings> setting)
         {
@@ -23,4 +23,4 @@ namespace sca.aktinesconsulting.infrastructure.Implementation
         }
 
     }
-}
+}   

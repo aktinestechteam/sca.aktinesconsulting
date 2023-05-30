@@ -64,6 +64,7 @@ namespace sca.aktinesconsulting.web.Models
         public string StartDateText { get; set; }
         public string EndDateText { get; set; } 
 
+
     }
 
 }

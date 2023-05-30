@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace sca.aktinesconsulting.infrastructure.Interface
 {
     public interface IDatabaseContext
-    {
+    {   
         SqlConnection Connection { get; }
     }
 }
