@@ -27,3 +27,12 @@
 /sca.aktinesconsulting.database/obj/Debug
 /sca.aktinesconsulting.database/sca.aktinesconsulting.database.dbmdl
 /sca.aktinesconsulting.database/sca.aktinesconsulting.database.jfm
+/sca.aktinesconsulting.core/bin/Release/netcoreapp3.1
+/sca.aktinesconsulting.entitiy/bin/Release/netcoreapp3.1
+/sca.aktinesconsulting.infrastructure/bin/Release/netcoreapp3.1
+/sca.aktinesconsulting.repository/bin/Release/netcoreapp3.1
+/sca.aktinesconsulting.service/bin/Release/netcoreapp3.1
+/sca.aktinesconsulting.service/obj/Release/netcoreapp3.1
+/sca.aktinesconsulting.web/bin/Release/netcoreapp3.1
+/sca.aktinesconsulting.web/Properties/PublishProfiles
+/sca.aktinesconsulting.web/Properties
