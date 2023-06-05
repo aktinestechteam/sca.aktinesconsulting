@@ -1,0 +1,132 @@
+﻿@model sca.aktinesconsulting.web.Models.SCAExceptionFieldTypeModel
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Configuration";
+    ViewData["BreadcrumbHeader"] = "SCA Exception";
+    ViewData["BreadcrumbPage"] = "Master";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-header portlet-header-bordered">
+                <h3 class="portlet-title">SCA Exception Field - Master</h3>
+                <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addupdateModal"><i class="fa fa-add" style="margin-right:5px"></i>Add</button>
+            </div>
+            <div class="portlet-body">
+                <div class="col-md-12">
+                    <div class="row" style="padding:10px">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%">Exception Field Type</span>
+                                    <select class="form-control" id="cmbExceptionFieldType">
+                                        <option value="-1">Select</option>
+                                        <option value="0">All</option>
+                                        @{
+                                        foreach(var expFieldType in Model.SCAExceptionFieldTypes){
+                                        <option value=@expFieldType.SCAExceptionFieldTypeId>@expFieldType.Name</option>
+                                        }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnFilter" type="button" class="btn btn-primary mar"><i class="fa fa-filter" style="margin-right:5px"></i>Filter</button>
+                        <button id="btnReset" type="button" class="btn btn-outline-info" style="margin-left:5px"><i class="fa fa-undo" style="margin-right:5px"></i>Reset</button>
+                    </div>
+                </div>
+
+
+                <hr />
+                <div>
+                    <table id="dtExceptionField" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline" style="text-align:center;width:100%">
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addupdateModal" tabindex="-1"  role="dialog" aria-labelledby="addupdateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addupdateModalLabel">Add Exception Field </h5>
+                <button type="button" class="close closeaddupdateModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div style="text-align: center;">
+                            <span style="margin-bottom:10px;display:none;color:#FF0000" id="errorMsg"></span>
+                        </div>
+                      
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> Exception Field Type  </span>
+                                    <select class="form-control" id="cmbaddupdateExceptionFieldType" style="margin-left: 20px;">
+                                        <option value="-1">Select</option>
+                                        @{
+                                        foreach(var expFieldType in Model.SCAExceptionFieldTypes){
+                                        <option value=@expFieldType.SCAExceptionFieldTypeId>@expFieldType.Name</option>
+                                        }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-md-12 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> Value </span>
+                                    <input type="text" id="txtExpField" style="margin-left: 20px;">
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSave" class="btn btn-primary"><i class="fa fa-save" style="margin-right:5px"></i> Save</button>
+                <button type="button" class="btn btn-secondary closeaddupdateModal" data-dismiss="modal"> <i class="fa fa-close" style="margin-right:5px"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Styles{
+    <style>
+        .buttons-colvis {
+            margin: 5px;
+        }
+
+        .buttons-excel {
+            margin: 5px;
+        }
+
+        .bg_color {
+            background-color: blue !important;
+        }
+    </style>
+}
+@section Scripts {
+    <script src="~/app/sca-exception-field.js" asp-append-version="true"></script>
+}

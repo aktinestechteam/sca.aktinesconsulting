@@ -51,7 +51,7 @@ namespace sca.aktinesconsulting.web.Controllers
 
 
         [HttpPost]
-        public async Task<string> AddUpdate([FromBody] SCAExceptionModal modal)
+        public async Task<string> AddUpdate([FromBody] SCAExceptionModel modal)
         {
            
             var entity = Mapper.MapSCAException(modal);

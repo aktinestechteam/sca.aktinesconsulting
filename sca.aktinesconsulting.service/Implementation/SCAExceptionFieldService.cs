@@ -21,5 +21,10 @@ namespace sca.aktinesconsulting.service.Implementation
             return await _scaExceptionFieldRepository.GetAll();
         }
 
+        public async Task<IList<SCAExceptionField>> GetBySCAExceptionFieldTypeId(int? scaExceptionFieldTypeId)
+        {
+            return await _scaExceptionFieldRepository.GetBySCAExceptionFieldTypeId(scaExceptionFieldTypeId);
+        }
+
     }
 }

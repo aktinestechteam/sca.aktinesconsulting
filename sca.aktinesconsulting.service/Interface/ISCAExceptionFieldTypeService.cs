@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.service.Interface
 {
-    public interface ISCAExceptionFieldService
+    public interface ISCAExceptionFieldTypeService
     {
-        Task<IList<SCAExceptionField>> GetAll();
-        Task<IList<SCAExceptionField>> GetBySCAExceptionFieldTypeId(int? scaExceptionFieldTypeId);
+        Task<IList<SCAExceptionFieldType>> GetAll();
     }
 }

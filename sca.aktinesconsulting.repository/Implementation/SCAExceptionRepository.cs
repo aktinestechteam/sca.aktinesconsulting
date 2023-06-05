@@ -3,6 +3,7 @@ using Dapper;
 using sca.aktinesconsulting.entitiy;
 using sca.aktinesconsulting.entitiy.QueryParameter;
 using sca.aktinesconsulting.infrastructure.Interface;
+using sca.aktinesconsulting.repository.Common;
 using sca.aktinesconsulting.repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace sca.aktinesconsulting.repository.Implementation
             {
                 using (var con = _dbContext.Connection)
                 {
-                    var result = (await SqlMapper.QueryAsync<SCAException>(con, "SCAExceptions_GetAll", null, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).AsEnumerable();
+                    var result = (await SqlMapper.QueryAsync<SCAException>(con, ConstantStoredProcedures.SCAExceptions_GetAll, null, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).AsEnumerable();
                     return result;
                 }
             }
@@ -45,7 +46,7 @@ namespace sca.aktinesconsulting.repository.Implementation
                 using (var con = _dbContext.Connection)
                 {
                     var queryParameters = new SCAExceptionGet() { SCAExceptionId = scaExceptionId };
-                    var result = (await SqlMapper.QueryAsync<SCAException>(con, "SCAExceptions_GetById", queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).FirstOrDefault();
+                    var result = (await SqlMapper.QueryAsync<SCAException>(con, ConstantStoredProcedures.SCAExceptions_GetById, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).FirstOrDefault();
                     return result;
                 }
             }
@@ -63,7 +64,7 @@ namespace sca.aktinesconsulting.repository.Implementation
                     var queryParameters = _mapper.Map<SCAExceptionAdd>(scaException);
                     queryParameters.CreatedOn = DateTime.UtcNow;
                     queryParameters.IsActive = true;
-                    var result = await SqlMapper.QuerySingleAsync<int>(con, "SCAExceptions_Add", queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure);
+                    var result = await SqlMapper.QuerySingleAsync<int>(con, ConstantStoredProcedures.SCAExceptions_Add, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure);
                     if (result > 0)
                         return true;
                     else
@@ -84,7 +85,7 @@ namespace sca.aktinesconsulting.repository.Implementation
                     var queryParameters = _mapper.Map<SCAExceptionUpdate>(scaException);
                     queryParameters.UpdatedOn = DateTime.UtcNow;
                     queryParameters.IsActive = true;
-                    var result = await SqlMapper.QuerySingleAsync<int>(con, "SCAExceptions_Update", queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure);
+                    var result = await SqlMapper.QuerySingleAsync<int>(con, ConstantStoredProcedures.SCAExceptions_Update, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure);
                     if (result > 0)
                         return true;
                     else
@@ -103,7 +104,7 @@ namespace sca.aktinesconsulting.repository.Implementation
                 using (var con = _dbContext.Connection)
                 {
                     var queryParameters = new SCAExceptionDelete() { SCAExceptionId = scaExceptionId, UpdatedBy = updatedBy, UpdatedOn = DateTime.UtcNow, IsActive = false };
-                    var result = await SqlMapper.QuerySingleAsync<int>(con, "SCAExceptions_Delete", queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure);
+                    var result = await SqlMapper.QuerySingleAsync<int>(con, ConstantStoredProcedures.SCAExceptions_Delete, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure);
                     if (result > 0)
                         return true;
                     else

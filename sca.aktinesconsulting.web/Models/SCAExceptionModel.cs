@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.web.Models
 {
-    public class SCAExceptionModal
+    public class SCAExceptionModel
     {
         public int? SCAExceptionId { get; set; }
         public string[] BookingOrigins { get; set; }

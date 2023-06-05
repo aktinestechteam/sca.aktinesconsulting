@@ -52,6 +52,8 @@ namespace sca.aktinesconsulting.web
             services.AddTransient<ISCAExceptionService, SCAExceptionService>();
             services.AddTransient<ISCAExceptionFieldRepository, SCAExceptionFieldRepository>();
             services.AddTransient<ISCAExceptionFieldService, SCAExceptionFieldService>();
+            services.AddTransient<ISCAExceptionFieldTypeRepository, SCAExceptionFieldTypeRepository>();
+            services.AddTransient<ISCAExceptionFieldTypeService, SCAExceptionFieldTypeService>();
             services.AddTransient<IFileService, FileService>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();

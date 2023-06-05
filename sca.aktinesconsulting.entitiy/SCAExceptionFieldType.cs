@@ -4,11 +4,9 @@ using System.Text;
 
 namespace sca.aktinesconsulting.entitiy
 {
-    public class SCAExceptionField
+    public class SCAExceptionFieldType
     {
-        public int SCAExceptionFieldId { get; set; }
         public int SCAExceptionFieldTypeId { get; set; }
-        public string SCAExceptionFieldType { get; set; }
         public string Name { get; set; }
     }
 }

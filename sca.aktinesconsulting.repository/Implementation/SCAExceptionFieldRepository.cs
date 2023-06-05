@@ -33,5 +33,24 @@ namespace sca.aktinesconsulting.repository.Implementation
                 throw;
             }
         }
+
+
+        public async Task<IList<SCAExceptionField>> GetBySCAExceptionFieldTypeId(int? scaExceptionFieldTypeId)
+        {
+            try
+            {
+                using (var con = _dbContext.Connection)
+                {
+                    var queryParameters = new DynamicParameters();
+                    queryParameters.Add("@SCAExceptionFieldTypeId", scaExceptionFieldTypeId);
+                    return (await SqlMapper.QueryAsync<SCAExceptionField>(con, ConstantStoredProcedures.SCAExceptionFields_GetBySCAExceptionFieldTypeId, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

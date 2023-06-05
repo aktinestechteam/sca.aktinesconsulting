@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "NcOLFDnjTGY1a8VSPmqRCF0Zn8zh/as+BkCYV+pWg1Dk5bblEc5ZqS4YsyxI1Ma2GBhFQemD4jDSEaUDKRY+Ew==",
+  "dgSpecHash": "NO7G1foHyn4iFTb2hnySkxty021emAOj1pwnvZxP5qZ6u6ZK+/pg1H2w6SDqCnpEmUQ8+9udv7MJCewQIIa/1Q==",
   "success": true,
   "projectFilePath": "C:\\Laxmikant\\sourcecode\\github\\sca.aktinesconsulting\\sca.aktinesconsulting.service\\sca.aktinesconsulting.service.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Laxmikant\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Laxmikant\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Laxmikant\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Laxmikant\\.nuget\\packages\\epplus.core\\1.5.4\\epplus.core.1.5.4.nupkg.sha512",
+    "C:\\Users\\Laxmikant\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Laxmikant\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Laxmikant\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
     "C:\\Users\\Laxmikant\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",

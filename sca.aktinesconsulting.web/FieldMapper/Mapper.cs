@@ -11,7 +11,7 @@ namespace sca.aktinesconsulting.web.FieldMapper
     public static class Mapper
     {
 
-        public static SCAException MapSCAException(SCAExceptionModal source)
+        public static SCAException MapSCAException(SCAExceptionModel source)
         {
             var scaException = new SCAException();
             scaException.SCAExceptionId = source.SCAExceptionId;
