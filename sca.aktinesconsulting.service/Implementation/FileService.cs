@@ -76,7 +76,7 @@ namespace sca.aktinesconsulting.service.Implementation
                                 table.Columns.Add("Col" + colinx);
                             }
                         }
-                        var rowCount = worksheet.Dimension.Rows;
+                        var rowCount = worksheet.Dimension.End.Row;
                         for (var rowNumber = 1; rowNumber <= rowCount; rowNumber++)
                         {
                             var cellText = worksheet.Cells[col + rowNumber + ":" + col + rowNumber].Text;
