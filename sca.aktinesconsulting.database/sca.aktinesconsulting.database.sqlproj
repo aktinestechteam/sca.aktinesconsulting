@@ -73,5 +73,7 @@
     <Build Include="Stored Procedures\Users_GetByEmail.sql" />
     <Build Include="Stored Procedures\SCAExceptionFieldTypes_GetAll.sql" />
     <Build Include="Stored Procedures\SCAExceptionFields_GetBySCAExceptionFieldTypeId.sql" />
+    <Build Include="Stored Procedures\SCAExceptionFields_AddUpdate.sql" />
+    <Build Include="Stored Procedures\SCAExceptionFields_Delete.sql" />
   </ItemGroup>
 </Project>

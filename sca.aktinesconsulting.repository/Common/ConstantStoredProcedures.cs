@@ -7,6 +7,8 @@ namespace sca.aktinesconsulting.repository.Common
     public class ConstantStoredProcedures
     {
         public const string SCAExceptionFields_GetAll = "SCAExceptionFields_GetAll";
+        public const string SCAExceptionFields_AddUpdate = "SCAExceptionFields_AddUpdate";
+        public const string SCAExceptionFields_Delete = "SCAExceptionFields_Delete";
         public const string SCAExceptionFields_GetBySCAExceptionFieldTypeId = "SCAExceptionFields_GetBySCAExceptionFieldTypeId";
         public const string SCAExceptionFieldTypes_GetAll = "SCAExceptionFieldTypes_GetAll";
         public const string SCAExceptions_GetAll = "SCAExceptions_GetAll";

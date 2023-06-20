@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using sca.aktinesconsulting.entitiy;
 using sca.aktinesconsulting.service.Interface;
+using sca.aktinesconsulting.web.Common;
+using sca.aktinesconsulting.web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,5 +34,19 @@ namespace sca.aktinesconsulting.web.Controllers
         {
             return await _scaExceptionFieldService.GetBySCAExceptionFieldTypeId(scaExceptionFieldTypeId);
         }
+
+        [HttpPost]
+        public async Task<int> AddUpdate([FromBody] SCAExceptionFieldModel scaExceptionFieldModel)
+        {
+            scaExceptionFieldModel.UserId= (int)HttpContext.User.GetUserId();
+            return await _scaExceptionFieldService.AddUpdate(scaExceptionFieldModel.SCAExceptionFieldTypeId, scaExceptionFieldModel.Name,scaExceptionFieldModel.UserId);
+        }
+
+        [HttpPost]
+        public async Task<int> Delete([FromQuery] int scaExceptionFieldId)
+        {
+            return await _scaExceptionFieldService.Delete(scaExceptionFieldId);
+        }
+
     }
 }

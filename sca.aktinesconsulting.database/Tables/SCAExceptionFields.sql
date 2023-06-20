@@ -7,5 +7,6 @@
 	[CreatedOn] DATETIME NULL,
 	[UpdatedBy] INT NULL,
 	[UpdatedOn] DATETIME NULL,
-	FOREIGN KEY (SCAExceptionFieldTypeId) REFERENCES [dbo].SCAExceptionFieldTypes(SCAExceptionFieldTypeId)
+	[IsActive] BIT NOT NULL DEFAULT 1, 
+    FOREIGN KEY (SCAExceptionFieldTypeId) REFERENCES [dbo].SCAExceptionFieldTypes(SCAExceptionFieldTypeId)
 )

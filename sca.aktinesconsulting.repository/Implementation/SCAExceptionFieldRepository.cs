@@ -33,8 +33,6 @@ namespace sca.aktinesconsulting.repository.Implementation
                 throw;
             }
         }
-
-
         public async Task<IList<SCAExceptionField>> GetBySCAExceptionFieldTypeId(int? scaExceptionFieldTypeId)
         {
             try
@@ -44,6 +42,41 @@ namespace sca.aktinesconsulting.repository.Implementation
                     var queryParameters = new DynamicParameters();
                     queryParameters.Add("@SCAExceptionFieldTypeId", scaExceptionFieldTypeId);
                     return (await SqlMapper.QueryAsync<SCAExceptionField>(con, ConstantStoredProcedures.SCAExceptionFields_GetBySCAExceptionFieldTypeId, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<int> AddUpdate(int scaExceptionFieldTypeId,string name,int userId)
+        {
+            try
+            {
+                using (var con = _dbContext.Connection)
+                {
+                    var queryParameters = new DynamicParameters();
+                    queryParameters.Add("@SCAExceptionFieldTypeId", scaExceptionFieldTypeId);
+                    queryParameters.Add("@Name", name);
+                    queryParameters.Add("@UserId", userId);
+                    return (await SqlMapper.QueryAsync<int>(con, ConstantStoredProcedures.SCAExceptionFields_AddUpdate, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<int> Delete(int scaExceptionFieldId)
+        {
+            try
+            {
+                using (var con = _dbContext.Connection)
+                {
+                    var queryParameters = new DynamicParameters();
+                    queryParameters.Add("@SCAExceptionFieldId", scaExceptionFieldId);
+                    return (await SqlMapper.QueryAsync<int>(con, ConstantStoredProcedures.SCAExceptionFields_Delete, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).FirstOrDefault();
                 }
             }
             catch (Exception)

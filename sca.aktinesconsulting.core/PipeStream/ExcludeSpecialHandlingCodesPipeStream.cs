@@ -21,12 +21,11 @@ namespace sca.aktinesconsulting.core.PipeStream
             List<SCAException> exceptions = new List<SCAException>();
             foreach (var shc in shcs)
             {
-
-                var outputStream = scaRules.Where(r => string.IsNullOrEmpty(r.ExcludeSpecialHandlingCodes) ||
+                scaRules = scaRules.Where(r => string.IsNullOrEmpty(r.ExcludeSpecialHandlingCodes) ||
                         !(Convert.ToString(r.ExcludeSpecialHandlingCodes.Trim()).Split('|').Contains(shc.Trim())) ||
                         !(Convert.ToString(r.ExcludeSpecialHandlingCodes.Trim()).ToLower().Equals(shc.Trim().ToLower()))).ToList();
-                exceptions.AddRange(outputStream);
             }
+            exceptions.AddRange(scaRules);
             exceptions = exceptions.Distinct().ToList();
             return exceptions.Count > 0 ? exceptions : null;
         }

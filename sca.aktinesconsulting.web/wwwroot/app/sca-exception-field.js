@@ -102,11 +102,12 @@
         clearErroMsg();
         var data = {
             scaExceptionFieldId: _scaExceptionFieldId,
-            name: $('#txtExpField').val()
+            name: $('#txtExpField').val(),
+            scaExceptionFieldTypeId:$("#cmbaddupdateExceptionFieldType").val()
         }
 
         $.ajax({
-            url: '/scaexceptionfield/update',
+            url: '/scaexceptionfield/addupdate',
             method: 'Post',
             cache: false,
             data:JSON.stringify(data),
@@ -128,8 +129,6 @@
         $('#errorMsg').css('display', 'none');
         $('#errorMsg').text('');
     }
-
-
     $(document).on('click', '.edit-exception', function () {
         var entry = this;
         _scaExceptionFieldId = entry.getAttribute('data-scaExceptionFieldId');
@@ -142,8 +141,6 @@
         $('#addupdateModal').modal('show');
         $("#cmbaddupdateExceptionFieldType").prop("disabled", true);
     });
-
-
     $(document).on('click', '.delete-exception', function () {
         var entry = this;
         _scaExceptionFieldId = Number(entry.getAttribute('data-scaExceptionFieldId'));
@@ -178,11 +175,9 @@
             }
         })
     });
-
     $(document).on('click', '.closeaddupdateModal', function () {
         $('#addupdateModal').modal('hide');
     });
-
     $('#cmbaddupdateExceptionFieldType').change(function () {
         $('#txtExpField').val('');
     });
