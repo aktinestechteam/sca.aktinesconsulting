@@ -75,5 +75,10 @@
     <Build Include="Stored Procedures\SCAExceptionFields_GetBySCAExceptionFieldTypeId.sql" />
     <Build Include="Stored Procedures\SCAExceptionFields_AddUpdate.sql" />
     <Build Include="Stored Procedures\SCAExceptionFields_Delete.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <Build Include="Tables\UserRoles.sql" />
+    <Build Include="Tables\Permissions.sql" />
+    <Build Include="Tables\RolePermissions.sql" />
+    <Build Include="Tables\UserPermissions.sql" />
   </ItemGroup>
 </Project>

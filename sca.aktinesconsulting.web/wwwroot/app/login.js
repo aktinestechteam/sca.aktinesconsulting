@@ -3,7 +3,7 @@
         rules: {
             email: {
                 required: !0,
-                email: !0
+                
             },
             password: {
                 required: !0,
@@ -12,7 +12,7 @@
         },
         messages: {
             email: {
-                required: "Please enter your email",
+                required: "Please enter your Username",
                 email: "Your email is not valid"
             },
             password: {

@@ -84,7 +84,8 @@ namespace sca.aktinesconsulting.service.Implementation
             pipeline.Add(new ChannelPipeStream());
             pipeline.Add(new ChargeableWeightPipeStream());
             pipeline.Add(new CurrencyPipeStream());
-            pipeline.Add(new FlightDepartureDatePipeStream());
+            //No rule on FlightDepartureDate
+            //pipeline.Add(new FlightDepartureDatePipeStream());
             pipeline.Add(new RevCurrencyPipeStream());
             pipeline.Add(new SpecialHandlingCodesPipeStream());
             pipeline.Add(new VolumePipeStream());
