@@ -80,5 +80,8 @@
     <Build Include="Tables\Permissions.sql" />
     <Build Include="Tables\RolePermissions.sql" />
     <Build Include="Tables\UserPermissions.sql" />
+    <Build Include="Tables\SCAVersions.sql" />
+    <Build Include="Tables\BookingEntries.sql" />
+    <Build Include="Stored Procedures\SCAVersions_Add.sql" />
   </ItemGroup>
 </Project>

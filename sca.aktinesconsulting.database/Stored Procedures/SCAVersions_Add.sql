@@ -1,0 +1,8 @@
+﻿CREATE PROCEDURE [dbo].[SCAVersions_Add]
+@UserId INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO [dbo].SCAVersions (UserId) Values (@UserId)
+	SELECT CAST(SCOPE_IDENTITY() as INT)
+END

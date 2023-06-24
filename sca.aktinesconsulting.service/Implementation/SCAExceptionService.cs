@@ -16,9 +16,12 @@ namespace sca.aktinesconsulting.service.Implementation
     public class SCAExceptionService : ISCAExceptionService
     {
         private readonly ISCAExceptionRepository _scaExceptionRepository;
-        public SCAExceptionService(ISCAExceptionRepository scaExceptionRepository)
+        private readonly IBookingEntryService _bookingEntryService;
+
+        public SCAExceptionService(ISCAExceptionRepository scaExceptionRepository, IBookingEntryService bookingEntryService)
         {
             _scaExceptionRepository = scaExceptionRepository;
+            _bookingEntryService = bookingEntryService;
         }
 
         public async Task<IEnumerable<SCAException>> GetAll()
@@ -52,7 +55,7 @@ namespace sca.aktinesconsulting.service.Implementation
             return result;
         }
 
-        public DataTable Identify(DataTable dt)
+        public async Task<DataTable> Identify(int userId, DataTable dt)
         {
             ReplaceColumnNames(dt);
             List<BookingEntry> bookingEntries = ConvertDataTable<BookingEntry>(dt);
@@ -63,7 +66,9 @@ namespace sca.aktinesconsulting.service.Implementation
                 pipeline.SetInput(bookingEntry);
                 pipeline.Run();
             }
-            return CreateOutputTable(dt,bookingEntries);
+            var outputTable = CreateOutputTable(dt, bookingEntries);
+            await _bookingEntryService.Add(userId, outputTable);
+            return outputTable;
         }
         private Pipeline BuildPipeLine(List<SCAException> scaExceptions)
         {
@@ -191,8 +196,8 @@ namespace sca.aktinesconsulting.service.Implementation
                         case "BKG_RATE_TYPE":
                             colName = "BookingRateType";
                             break;
-                        case "CURRENCY":
-                            colName = "CurrencyCD";
+                        case "CURRENCY_CD":
+                            colName = "Currency";
                             break;
                         case "AGENT":
                             colName = "AgentCode";
@@ -247,6 +252,21 @@ namespace sca.aktinesconsulting.service.Implementation
                             break;
                         case "METAL_INFO":
                             colName = "MetalInfo";
+                            break;
+                        case "BOOKING_TIME":
+                            colName = "BookingTime";
+                            break;
+                        case "FLIGHT_DEP_TIME":
+                            colName = "FlightDepartureTime";
+                            break;
+                        case "REV FOREIGN":
+                            colName = "RevForeign";
+                            break;
+                        case "YIELD GBP":
+                            colName = "YieldGBP";
+                            break;
+                        case "YIELD FOREIGN":
+                            colName = "YieldForeign";
                             break;
                     }
                     dt.Columns[col].ColumnName = colName;

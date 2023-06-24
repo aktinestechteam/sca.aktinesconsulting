@@ -17,6 +17,6 @@ namespace sca.aktinesconsulting.service.Interface
         Task<bool> Update(SCAException scaException);
         Task<bool> Delete(int scaExceptionId, int updatedBy);
         Task<BookingEntry> Validate(BookingEntry bookingEntry);
-        DataTable Identify(DataTable dt);
+        Task<DataTable> Identify(int userId,DataTable dt);
     }
 }

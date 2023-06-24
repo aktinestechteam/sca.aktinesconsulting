@@ -34,7 +34,7 @@ namespace sca.aktinesconsulting.web.Controllers
             {
                 return RedirectToAction("Login");
             }
-
+                
             var key = _configuration["AppSettings:SecurityKey"].ToString();
             password = AES.EncryptString(key, password);
             var user = await _userService.Validate(email, password);

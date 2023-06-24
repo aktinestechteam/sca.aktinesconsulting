@@ -9,6 +9,7 @@ using sca.aktinesconsulting.service.Implementation;
 using sca.aktinesconsulting.service.Interface;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
+using sca.aktinesconsulting.web.Common;
 
 namespace sca.aktinesconsulting.web.Controllers
 {
@@ -31,6 +32,7 @@ namespace sca.aktinesconsulting.web.Controllers
         [HttpPost]
         public async Task<string> ProcessBookingEntry([FromForm] IFormFile file)
         {
+            var userId= (int)HttpContext.User.GetUserId();
             if (file == null)
                 return string.Empty;
             using (var memoryStream = new MemoryStream())
@@ -39,7 +41,7 @@ namespace sca.aktinesconsulting.web.Controllers
                 var dt = _fileService.ExcelDataReader(memoryStream, string.Empty, "X").FirstOrDefault();
                 if (dt != null)
                 {
-                    return JsonConvert.SerializeObject(_exceptionService.Identify(dt));
+                    return JsonConvert.SerializeObject(await _exceptionService.Identify(userId,dt));
                 }
             }
             return string.Empty;
