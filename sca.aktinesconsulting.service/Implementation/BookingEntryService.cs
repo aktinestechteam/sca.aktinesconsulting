@@ -1,4 +1,5 @@
-﻿using sca.aktinesconsulting.repository.Interface;
+﻿using sca.aktinesconsulting.entitiy;
+using sca.aktinesconsulting.repository.Interface;
 using sca.aktinesconsulting.service.Interface;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace sca.aktinesconsulting.service.Implementation
             scaVersionIdColumn.DefaultValue = scaVersionId;
             dt.Columns.Add(scaVersionIdColumn);
             return _bookingEntryRepository.Add(dt);
+        }
+
+        public Task<IList<BookingEntry>> GetBySCAVersionId(int scaVersionId)
+        {
+            return _bookingEntryRepository.GetBySCAVersionId(scaVersionId);
         }
     }
 }

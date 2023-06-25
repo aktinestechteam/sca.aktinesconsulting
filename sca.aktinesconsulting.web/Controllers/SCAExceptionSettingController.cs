@@ -26,13 +26,21 @@ namespace sca.aktinesconsulting.web.Controllers
         [Route("/scaexception/setting/update/{exceptionId?}")]
         public IActionResult Index(int exceptionId = 0)
         {
-            ViewData["exceptionId"] = exceptionId;
+            //Temporary code
+            if (User.Identity.Name == "Hazel" || User.Identity.Name == "Vaishali")
+                return Redirect("/SCAException/Index");
+
+                ViewData["exceptionId"] = exceptionId;
             return View("AddUpdate");
         }
 
         [Route("/scaexception/setting/view")]
         public IActionResult Exceptions()
         {
+            //Temporary code
+            if (User.Identity.Name == "Hazel" || User.Identity.Name == "Vaishali")
+                return Redirect("/SCAException/Index");
+
             return View();
         }
 

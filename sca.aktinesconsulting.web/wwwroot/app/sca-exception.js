@@ -99,5 +99,8 @@ $(function () {
     $("#btnExceptions").click(function () {
         window.location.href = '/scaexception/setting/view';
     });
+    $("#btnVersionHistory").click(function () {
+        window.location.href = '/sca/bookingentry/versionhistory';
+    });
 
 });

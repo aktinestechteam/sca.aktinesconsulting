@@ -17,8 +17,8 @@ namespace sca.aktinesconsulting.repository.Common
         public const string SCAExceptions_Update = "SCAExceptions_Update";
         public const string SCAExceptions_Delete = "SCAExceptions_Delete";
         public const string SCAVersions_Add = "SCAVersions_Add";
-
-
+        public const string SCAVersions_GetAll = "SCAVersions_GetAll";
+        public const string BookingEntries_GetBySCAVersionId = "BookingEntries_GetBySCAVersionId";
 
 
 

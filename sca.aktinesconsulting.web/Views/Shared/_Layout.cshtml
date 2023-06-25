@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -54,7 +55,14 @@
                                             </button>
                                             <div class="menu-submenu" style="height: 0px;">
                                                 <div class="menu-item"><a href="@Url.Action( "Index", "SCAException")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-play-circle"></i> <span class="menu-item-text">Process</span></a></div>
-                                                <div class="menu-item"><a href="@Url.Action( "Exceptions", "SCAExceptionSetting")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-gear"></i> <span class="menu-item-text">Rule Settings</span></a></div>
+                                                @{
+                                                    //Temporary code
+                                                    var username = User.Identity.Name;
+                                                    if (!username.Equals("Hazel") && !username.Equals("Vaishali"))
+                                                    {
+                                                        <div class="menu-item"><a href="@Url.Action( "Exceptions", "SCAExceptionSetting")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-gear"></i> <span class="menu-item-text">Rule Settings</span></a></div>
+                                                    }
+                                                }
                                                 @*<div class="menu-item"><a href="@Url.Action( "Index","SCAExceptionFieldType")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-wrench"></i> <span class="menu-item-text">Masters</span></a></div>*@
                                             </div>
                                         </div>
@@ -140,49 +148,50 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="portlet-footer portlet-footer-bordered rounded-0"/><button class="btn btn-label-danger" onclick="window.location='@Url.Action( "Logout", "Account")'">Sign out</button></div>
+                                            <div class="portlet-footer portlet-footer-bordered rounded-0" /><button class="btn btn-label-danger" onclick="window.location='@Url.Action( "Logout", "Account")'">Sign out</button>
                                         </div>
-                                    </div>  
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="header-holder header-holder-mobile">
-                    <div class="header-container container-fluid g-5">
-                        <div class="header-wrap header-wrap-block justify-content-start w-100">
-                            <div class="breadcrumb breadcrumb-transparent mb-0">
-                                <a href="../index.html" class="breadcrumb-item">
-                                    <div class="breadcrumb-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                        </svg>
-                                    </div>
-                                    <span class="breadcrumb-text">Dashboard</span>
-                                </a>
-                                <a href="#" class="breadcrumb-item"><span class="breadcrumb-text">Form</span> </a><a href="../form/base.html" class="breadcrumb-item"><span class="breadcrumb-text">Base</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="content">
-                <div class="container-fluid g-5">
-                    @RenderBody()
-                </div>
-            </div>
-            <div class="footer">
-                <div class="container-fluid g-5">
-                    <div class="row g-3">
-                        <div class="col-sm-6 text-center text-sm-start">
-                            <p class="mb-0"><i class="far fa-copyright"></i> <span id="copyright-year">@DateTime.Now.Year</span> All rights reserved</p>
+            <div class="header-holder header-holder-mobile">
+                <div class="header-container container-fluid g-5">
+                    <div class="header-wrap header-wrap-block justify-content-start w-100">
+                        <div class="breadcrumb breadcrumb-transparent mb-0">
+                            <a href="../index.html" class="breadcrumb-item">
+                                <div class="breadcrumb-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg>
+                                </div>
+                                <span class="breadcrumb-text">Dashboard</span>
+                            </a>
+                            <a href="#" class="breadcrumb-item"><span class="breadcrumb-text">Form</span> </a><a href="../form/base.html" class="breadcrumb-item"><span class="breadcrumb-text">Base</span></a>
                         </div>
-                      
                     </div>
                 </div>
             </div>
         </div>
+        <div class="content">
+            <div class="container-fluid g-5">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container-fluid g-5">
+                <div class="row g-3">
+                    <div class="col-sm-6 text-center text-sm-start">
+                        <p class="mb-0"><i class="far fa-copyright"></i> <span id="copyright-year">@DateTime.Now.Year</span> All rights reserved</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <div class="floating-btn floating-btn-end d-grid gap-2"><button class="btn btn-flat-primary btn-icon" data-bs-toggle="tooltip" data-bs-placement="right" id="theme-toggle" aria-label="Change theme" data-bs-original-title="Change theme" fdprocessedid="v17im"><i class="fa fa-moon"></i></button></div>
     <script src="/lib/jquery/dist/jquery.min.js"></script>

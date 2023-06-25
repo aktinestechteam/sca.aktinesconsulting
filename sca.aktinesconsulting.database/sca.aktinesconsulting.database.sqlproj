@@ -83,5 +83,7 @@
     <Build Include="Tables\SCAVersions.sql" />
     <Build Include="Tables\BookingEntries.sql" />
     <Build Include="Stored Procedures\SCAVersions_Add.sql" />
+    <Build Include="Stored Procedures\SCAVersions_GetAll.sql" />
+    <Build Include="Stored Procedures\BookingEntries_GetBySCAVersionId.sql" />
   </ItemGroup>
 </Project>

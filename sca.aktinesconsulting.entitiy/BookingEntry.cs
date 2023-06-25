@@ -42,5 +42,9 @@ namespace sca.aktinesconsulting.entitiy
         public bool IsDateExcetionExist { get; set; }
         //Not required
         public string RevCurrency { get; set; }
+        public string ExceptionId { get; set; }
+        public string ExceptionDescription { get; set; }
+        public string ExceptionRuleExist { get; set; }
+
     }
 }

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Dapper;
+using sca.aktinesconsulting.entitiy;
 using sca.aktinesconsulting.infrastructure.Interface;
 using sca.aktinesconsulting.repository.Common;
 using sca.aktinesconsulting.repository.Interface;
@@ -7,6 +9,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace sca.aktinesconsulting.repository.Implementation
 {
@@ -46,6 +50,23 @@ namespace sca.aktinesconsulting.repository.Implementation
                 }
             }
             catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IList<BookingEntry>> GetBySCAVersionId(int scaVersionId)
+        {
+            try
+            {
+                using (var con = _dbContext.Connection)
+                {
+                    var queryParameters = new  { SCAVersionId = scaVersionId };
+                    var result = (await SqlMapper.QueryAsync<BookingEntry>(con, ConstantStoredProcedures.BookingEntries_GetBySCAVersionId, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).ToList();
+                    return result;
+                }
+            }
+            catch (Exception)
             {
                 throw;
             }

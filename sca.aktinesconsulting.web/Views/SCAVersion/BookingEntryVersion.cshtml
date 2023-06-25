@@ -1,47 +1,47 @@
-﻿@using System.Security.Claims
+﻿@model sca.aktinesconsulting.web.Models.SCAVersionModel
+
 @{
     Layout = "_Layout";
 }
+
 @{
-    ViewData["Title"] = "v";
-    ViewData["BreadcrumbHeader"] = "SCA Exception";
-    ViewData["BreadcrumbPage"] = "Process";
+    ViewData["Title"] = "History";
+    ViewData["BreadcrumbHeader"] = "SCA Version";
+    ViewData["BreadcrumbPage"] = "Booking Entry";
 }
 
 <div class="row">
     <div class="col-md-12">
         <div class="portlet">
             <div class="portlet-header portlet-header-bordered">
-                <h3 class="portlet-title">Booking Entry Manual input</h3>
+                <h3 class="portlet-title">Booking Entry - Versions</h3>
             </div>
             <div class="portlet-body">
-                <div class="d-grid gap-3">
-                    <div class="col-md-6">
-                        <form asp-controller="SCAException" asp-action="ProcessBookingEntry" asp-antiforgery="false"
-                              id="fmUpload" method="post"
-                              enctype="multipart/form-data">
-                            <div class="modal-body" style="padding:10px">
-                                <div class="flex-column">
-                                    <label for="formFile" class="form-label">Select File</label>
-                                    <input class="form-control" type="file" id="formFile" accept=".xlsx">
+                <div class="col-md-12">
+                    <div class="row" style="padding:10px">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%">Uploaded Version</span>
+                                    <select class="form-control" id="cmbSCAVersions">
+                                        <option value="0">Select</option>
+                                        @{
+                                        foreach(var version in Model.Versions){
+                                        <option value=@version.SCAVersionId>@version.Name</option>
+                                        }
+                                        }
+                                    </select>
                                 </div>
                             </div>
-
-                            <div class="modal-footer">
-                                <button id="btnUpload" type="button" class="btn btn-primary mar" fdprocessedid="3hmaxr" style="margin-right:5px"><i class="fa fa-play-circle" style="margin-right:5px"></i>Process</button>
-                                @{
-                                    //Temporary code
-                                    var username = User.Identity.Name;
-                                    if (!username.Equals("Hazel") && !username.Equals("Vaishali"))
-                                    {
-                                        <button id="btnExceptions" type="button" class="btn btn-outline-info" fdprocessedid="igougf" data-bs-toggle="modal" data-bs-target="#modal10" style="margin-right:5px"><i class="fa fa-list" style="margin-right:5px"></i>Exceptions</button>
-                                    }
-                                }
-                                <button id="btnVersionHistory" type="button" class="btn btn-outline-info" fdprocessedid="igougf" data-bs-toggle="modal" data-bs-target="#modal10"><i class="fa fa-list" style="margin-right:5px"></i>Version History</button>
-                            </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnFilter" type="button" class="btn btn-primary mar"><i class="fa fa-filter" style="margin-right:5px"></i>Filter</button>
+                        <button id="btnReset" type="button" class="btn btn-outline-info" style="margin-left:5px"><i class="fa fa-undo" style="margin-right:5px"></i>Reset</button>
                     </div>
                 </div>
+
+
                 <hr />
                 <div>
                     <table id="dtBookingEntry" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline">
@@ -83,37 +83,13 @@
                             </tr>
                         </thead>
                         <tbody></tbody>
-
                     </table>
-
                 </div>
             </div>
         </div>
 
     </div>
 </div>
-
-
-
-
-@section Styles{
-    <style>
-        .buttons-colvis {
-            margin: 5px;
-        }
-
-        .buttons-excel {
-            margin: 5px;
-        }
-
-        .bg_color {
-            background-color: blue !important;
-        }
-    </style>
-}
 @section Scripts {
-
-    <script src="~/app/sca-exception.js" asp-append-version="true"></script>
-
-
+<script src="~/app/sca-version.js" asp-append-version="true"></script>
 }
