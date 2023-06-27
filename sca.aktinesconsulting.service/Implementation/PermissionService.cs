@@ -8,20 +8,14 @@ using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.service.Implementation
 {
-    public class UserService : IUserService
+    public class PermissionService : IPermissionService
     {
-        private readonly IUserRepository _userRepository;
         private readonly IPermissionRepository _permissionRepository;
-        public UserService(IUserRepository userRepository, IPermissionRepository permissionRepository)
+        public PermissionService(IPermissionRepository permissionRepository)
         {
-            _userRepository = userRepository;
             _permissionRepository = permissionRepository;
         }
-        public async Task<User> Validate(string email, string password)
-        {
-            return await _userRepository.Validate(email, password);
-        }
-        public async Task<IList<UserPermission>> GetPermissions(int userId)
+        public async Task<IList<UserPermission>> GetByUserId(int userId)
         {
             return await _permissionRepository.GetByUserId(userId);
         }

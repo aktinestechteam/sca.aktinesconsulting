@@ -61,6 +61,9 @@ namespace sca.aktinesconsulting.web
             services.AddTransient<ISCAVersionService, SCAVersionService>();
             services.AddTransient<IBookingEntryRepository, BookingEntryRepository>();
             services.AddTransient<IBookingEntryService, BookingEntryService>();
+            services.AddTransient<IPermissionService, PermissionService>();
+            services.AddTransient<IPermissionRepository, PermissionRepository>();
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             services.Configure<CookiePolicyOptions>(options =>

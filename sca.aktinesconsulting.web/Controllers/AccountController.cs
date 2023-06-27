@@ -34,7 +34,6 @@ namespace sca.aktinesconsulting.web.Controllers
             {
                 return RedirectToAction("Login");
             }
-                
             var key = _configuration["AppSettings:SecurityKey"].ToString();
             password = AES.EncryptString(key, password);
             var user = await _userService.Validate(email, password);
@@ -42,12 +41,21 @@ namespace sca.aktinesconsulting.web.Controllers
             //Here can be implemented checking logic from the database  
             if (user!=null)
             {
+                var userData = string.Empty;
+                var permissions = await _userService.GetPermissions(user.UserId);
+                if (permissions != null)
+                {
+                    foreach(var permission in permissions)
+                    {
+                        userData= $"{userData}{permission.PermissionName}_View={permission.View};{permission.PermissionName}_Create={permission.Create};{permission.PermissionName}_Modify={permission.Modify};{permission.PermissionName}_Delete={permission.Delete}|";
+                    }
+                }
                 //Create the identity for the user  
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Email, email),
                     new Claim(ClaimTypes.Name, user.FirstName),
-                    new Claim(ClaimTypes.Sid, user.UserId.ToString())
-
+                    new Claim(ClaimTypes.Sid, user.UserId.ToString()),
+                    new Claim(ClaimTypes.UserData, userData)
                 }, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
                 var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);

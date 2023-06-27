@@ -1,4 +1,5 @@
 ﻿@using System.Security.Claims
+@using sca.aktinesconsulting.web.Common
 @{
     Layout = "_Layout";
 }
@@ -30,11 +31,9 @@
                             <div class="modal-footer">
                                 <button id="btnUpload" type="button" class="btn btn-primary mar" fdprocessedid="3hmaxr" style="margin-right:5px"><i class="fa fa-play-circle" style="margin-right:5px"></i>Process</button>
                                 @{
-                                    //Temporary code
-                                    var username = User.Identity.Name;
-                                    if (!username.Equals("Hazel") && !username.Equals("Vaishali"))
+                                    if (User.IsAllowed(Permissions.SCARule,PermissionType.Create))
                                     {
-                                        <button id="btnExceptions" type="button" class="btn btn-outline-info" fdprocessedid="igougf" data-bs-toggle="modal" data-bs-target="#modal10" style="margin-right:5px"><i class="fa fa-list" style="margin-right:5px"></i>Exceptions</button>
+                                    <button id="btnExceptions" type="button" class="btn btn-outline-info" fdprocessedid="igougf" data-bs-toggle="modal" data-bs-target="#modal10" style="margin-right:5px"><i class="fa fa-list" style="margin-right:5px"></i>Exceptions</button>
                                     }
                                 }
                                 <button id="btnVersionHistory" type="button" class="btn btn-outline-info" fdprocessedid="igougf" data-bs-toggle="modal" data-bs-target="#modal10"><i class="fa fa-list" style="margin-right:5px"></i>Version History</button>

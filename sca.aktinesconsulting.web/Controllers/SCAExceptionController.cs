@@ -32,6 +32,7 @@ namespace sca.aktinesconsulting.web.Controllers
         [HttpPost]
         public async Task<string> ProcessBookingEntry([FromForm] IFormFile file)
         {
+           
             var userId= (int)HttpContext.User.GetUserId();
             if (file == null)
                 return string.Empty;

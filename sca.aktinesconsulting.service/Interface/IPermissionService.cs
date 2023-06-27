@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.service.Interface
 {
-    public interface IUserService
+    public interface IPermissionService
     {
-        Task<User> Validate(string email, string password);
-        Task<IList<UserPermission>> GetPermissions(int userId);
+        Task<IList<UserPermission>> GetByUserId(int userId);
     }
 }

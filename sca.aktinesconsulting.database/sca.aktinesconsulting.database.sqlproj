@@ -85,5 +85,9 @@
     <Build Include="Stored Procedures\SCAVersions_Add.sql" />
     <Build Include="Stored Procedures\SCAVersions_GetAll.sql" />
     <Build Include="Stored Procedures\BookingEntries_GetBySCAVersionId.sql" />
+    <Build Include="Stored Procedures\Permissions_GetByUserId.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="sca.aktinesconsulting.database.refactorlog" />
   </ItemGroup>
 </Project>

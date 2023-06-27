@@ -19,5 +19,15 @@ namespace sca.aktinesconsulting.web.Common
             return null;
         }
 
+        public static bool IsAllowed(this ClaimsPrincipal claimsPrincipal,string permissionName, PermissionType permissionType)
+        {
+            if (claimsPrincipal != null)
+            {
+                var permissions = claimsPrincipal.Claims.Where(c => c.Type == ClaimTypes.UserData.ToString()).Select(c => c.Value).SingleOrDefault();
+                if (!string.IsNullOrEmpty(permissions) && permissions.Contains($"{permissionName}_{permissionType.ToString()}=True"))
+                    return true;
+            }
+            return false;
+        }
     }
 }

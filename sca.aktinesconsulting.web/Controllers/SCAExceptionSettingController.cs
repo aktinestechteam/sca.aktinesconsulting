@@ -26,8 +26,7 @@ namespace sca.aktinesconsulting.web.Controllers
         [Route("/scaexception/setting/update/{exceptionId?}")]
         public IActionResult Index(int exceptionId = 0)
         {
-            //Temporary code
-            if (User.Identity.Name == "Hazel" || User.Identity.Name == "Vaishali")
+            if (User.IsAllowed(Permissions.SCARule, PermissionType.Create))
                 return Redirect("/SCAException/Index");
 
                 ViewData["exceptionId"] = exceptionId;
@@ -37,8 +36,7 @@ namespace sca.aktinesconsulting.web.Controllers
         [Route("/scaexception/setting/view")]
         public IActionResult Exceptions()
         {
-            //Temporary code
-            if (User.Identity.Name == "Hazel" || User.Identity.Name == "Vaishali")
+            if (User.IsAllowed(Permissions.SCARule, PermissionType.Create))
                 return Redirect("/SCAException/Index");
 
             return View();
