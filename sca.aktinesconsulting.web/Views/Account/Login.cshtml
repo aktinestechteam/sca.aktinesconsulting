@@ -10,26 +10,45 @@
     <div class="portlet">
         <div class="portlet-body">
             <div class="text-center mt-4 mb-5">
-                <div class="avatar avatar-label-primary avatar-circle widget12">
-                    <div class="avatar-display"><i class="fa fa-user-alt"></i></div>
+                <div class="avatar avatar-label-primary avatar-circle widget12" style="background: #e8f4fe">
+                    <div> <img src="~/assets/images/CIPHER_logo.png" width="100px" /></div>
                 </div>
+                
             </div>
             <form class="d-grid gap-3" id="login-form" novalidate="novalidate" asp-action="login" method="post">
                 <div class="validation-container">
-                    <div class="form-floating"><input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="Please insert your email" fdprocessedid="54w7eq"> <label for="email">Username</label></div>
+                    <div style="display:flex">
+                        <div style="border: 1px solid #e0e0e0; width: 9%; border-width: 1px 0px 1px 1px; text-align: center; color: #de353e; ">
+                            <i class="fa fa-user" style="padding:10px"></i>
+                        </div>
+                        <div style="width:91%">
+                            <div class="form-floating"><input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="Please insert your email" fdprocessedid="54w7eq" style="border-radius:0px"> <label for="email">Username</label></div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="validation-container">
-                    <div class="form-floating"><input class="form-control form-control-lg" type="password" id="password" name="password" placeholder="Please insert your password" fdprocessedid="vbpvyf"> <label for="password">Password</label></div>
+                    <div style="display:flex">
+                        <div style="border: 1px solid #e0e0e0; width: 9%; border-width: 1px 0px 1px 1px; text-align: center; color: #de353e; ">
+                            <i class="fa fa-lock" style="padding:10px"></i>
+                        </div>
+                        <div style="width:91%">
+                            <div class="form-floating"><input class="form-control form-control-lg" type="password" id="password" name="password" placeholder="Please insert your password" fdprocessedid="vbpvyf" style=" border-radius:0px"> <label for="password">Password</label></div>
+                        </div>
+                    </div>
+
+
+
                 </div>
-                <div class="d-flex align-items-center justify-content-between">
+                @*<div class="d-flex align-items-center justify-content-between">
                     <div class="validation-container">
                         <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="remember" name="remember"> <label class="form-check-label" for="remember">Remember me</label></div>
                     </div>
                     <a href="#">Forgot password?</a>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                    <span>Don't have an account? <a href="../../pages/register/register-1.html">Register</a></span>
-                    <button type="submit" class="btn btn-label-primary btn-lg btn-widest" fdprocessedid="ao4lt" id="btnLogin">Login</button>
+                </div>*@
+                <div style="text-align:center">
+                    @*<span>Don't have an account? <a href="../../pages/register/register-1.html">Register</a></span>*@
+                    <button type="submit" class="btn btn-label-primary btn-lg btn-widest" fdprocessedid="ao4lt" id="btnLogin" style="width:200px;">Login</button>
                 </div>
             </form>
         </div>
