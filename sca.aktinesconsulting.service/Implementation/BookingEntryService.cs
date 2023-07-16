@@ -21,10 +21,26 @@ namespace sca.aktinesconsulting.service.Implementation
         public async Task<bool> Add(int userId,DataTable dt)
         {
             var scaVersionId = await _scaVersionService.Add(userId);
-            DataColumn scaVersionIdColumn = new DataColumn("SCAVersionId", typeof(System.Int32));
-            scaVersionIdColumn.DefaultValue = scaVersionId;
-            dt.Columns.Add(scaVersionIdColumn);
+            AddCustomColumn("SCAVersionId", typeof(int), scaVersionId, dt);
+            AddCustomColumn("EmailWeight", typeof(decimal), 0, dt);
+            AddCustomColumn("EmailVolume", typeof(decimal), 0, dt);
+            AddCustomColumn("EmailRate", typeof(decimal), 0, dt);
+            AddCustomColumn("EmailRevenue", typeof(decimal), 0, dt);
+            AddCustomColumn("EmailIsCNFNReceived", typeof(bool), false, dt);
+            AddCustomColumn("SCAIsApplicable", typeof(bool), false, dt);
+            for (int rw = 0; rw < dt.Rows.Count; rw++)
+            {
+                if (string.IsNullOrEmpty(Convert.ToString(dt.Rows[rw]["ExceptionId"])))
+                    dt.Rows[rw]["SCAIsApplicable"] = true;
+            }
             return _bookingEntryRepository.Add(dt);
+        }
+
+        private void AddCustomColumn(string name,Type dataType,object defaultValue,DataTable dt)
+        {
+            DataColumn column = new DataColumn(name, dataType);
+            column.DefaultValue = defaultValue;
+            dt.Columns.Add(column);
         }
 
         public Task<IList<BookingEntry>> GetBySCAVersionId(int scaVersionId)
