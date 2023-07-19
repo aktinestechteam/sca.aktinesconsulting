@@ -1,0 +1,453 @@
+﻿@model sca.aktinesconsulting.web.Models.SCAVersionModel
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "History";
+    ViewData["BreadcrumbHeader"] = "Booking Entry";
+    ViewData["BreadcrumbPage"] = "View";
+}
+
+
+<div class="row">
+    <div class="loader"></div> <!-- Loader element -->
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-header portlet-header-bordered">
+                <h3 class="portlet-title">Booking Entry - View</h3>
+            </div>
+            <div class="portlet-body">
+                <div class="col-md-12">
+                    <div class="row" style="padding:10px">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%">From Date</span>
+                                    <input type="text" class="form-control" placeholder="Select date" id="dpStartDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%">To Date</span>
+                                    <input type="text" class="form-control" placeholder="Select date" id="dpEndDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding:10px">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%">AWB</span>
+                                    <input type="text" class="form-control" id="txtAWB">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="btnFilter" type="button" class="btn btn-primary mar"><i class="fa fa-filter" style="margin-right:5px"></i>Filter</button>
+                        <button id="btnReset" type="button" class="btn btn-outline-info" style="margin-left:5px"><i class="fa fa-undo" style="margin-right:5px"></i>Reset</button>
+                    </div>
+                </div>
+
+
+                <hr />
+                <div>
+                    <table id="dtBookingEntry" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline">
+                        <thead>
+                            <tr>
+                                <td>FULL_AWB</td>
+                                <td>Edit</td>
+                                <td>Duplicate</td>
+                                <td>Email Weight</td>
+                                <td>Email Volume</td>
+                                <td>Email Rate</td>
+                                <td>Email Revenue</td>
+                                <td>Email CNFN_Received</td>
+                                <td>Email SCA_Applicable</td>
+                                <td>BOOKING_DATE</td>
+                                <td>FLIGHT_DEP_DATE</td>
+                                <td>BOOKING_TIME</td>
+                                <td>FLIGHT_DEP_TIME</td>
+                                <td>BKG_ORIGIN</td>
+                                <td>BKG_DESTN</td>
+                                <td>BKG_RATE_TYPE</td>
+                                <td>AGENT</td>
+                                <td>AGENT_NAME</td>
+                                <td>BKG_DEST_COUNTRY</td>
+                                <td>BKG_DEST_REGION</td>
+                                <td>BKG_LAST_UPDATED_BY</td>
+                                <td>BKG_ORIGIN_COUNTRY</td>
+                                <td>BKG_ORIGIN_EXT_SALES_AREA</td>
+                                <td>BKG_ORI_REGION</td>
+                                <td>BKG_REF</td>
+                                <td>CHANNEL_CD</td>
+                                <td>SPH_CODES</td>
+                                <td>CHARGEABLE_WT</td>
+                                <td>CURRENCY_CD</td>
+                                <td>REV GBP</td>
+                                <td>REV FOREIGN</td>
+                                <td>YIELD GBP</td>
+                                <td>YIELD FOREIGN</td>
+                                <td>VOLUME</td>
+                                <td>PRODUCT_CODE</td>
+                                <td>PRODUCT_NAME</td>
+                                <td>FLIGHT_NUMBER</td>
+                                <td>METAL_INFO</td>
+                                <td>ExceptionId</td>
+                                <td>ExceptionDescription</td>
+                                <td>ExceptionRuleExist</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="addupdateModal" tabindex="-1" role="dialog" aria-labelledby="addupdateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addupdateModalLabel">Update Email Details </h5>
+                <button type="button" class="close closeaddupdateModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <input type="hidden" id="txtBookingEntryId" />
+                    <div class="row">
+                        <div style="text-align: center;">
+                            <span style="margin-bottom:10px;display:none;color:#FF0000" id="errorMsg"></span>
+                        </div>
+
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> Weight </span>
+                                    <input type="text" id="txtEmailWeight" style=" text-align: right;">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> Volume </span>
+                                    <input type="text" id="txtEmailVolume" style=" text-align: right;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> Rate </span>
+                                    <input type="text" id="txtEmailRate" style=" text-align: right;">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> Revenue </span>
+                                    <input type="text" id="txtEmailRevenue" style=" text-align: right;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> CNFN Received </span>
+                                    <input type="checkbox" id="chkEmailIsCNFNReceived" style="margin-left:20px">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div style="display:flex">
+                                    <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> SCA Applicable </span>
+                                    <input  type="checkbox" id="chkSCAIsApplicable"  style="margin-left:20px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSave" class="btn btn-primary"><i class="fa fa-save" style="margin-right:5px"></i> Save</button>
+                <button type="button" class="btn btn-secondary closeaddupdateModal" data-dismiss="modal"> <i class="fa fa-close" style="margin-right:5px"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .duplicate-square {
+        width: 20px; /* Adjust the width and height to your desired size */
+        height: 20px;
+        background-color: #3498db; /* Set the background color of the square */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff; /* Set the color of the number inside the square */
+        font-size: 12px; /* Adjust the font size of the number */
+        font-weight: bold; /* Optional: Make the number bold for better visibility */
+        border-radius: 5px; /* Optional: Add rounded corners for a more appealing look */
+    }
+    /* Custom styles for the loader */
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        display: none;
+    }
+
+        /* Customize the loader appearance (e.g., use a spinner icon) */
+        .loader::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            border-top: 3px solid #3498db;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+@section Scripts {
+    <script>
+    $(function () {
+        var dtBookingEntry = null;
+        init();
+        function init() {
+            $("#dpStartDate").datepicker({ orientation: 'left', autoclose: !0 });
+            $("#dpEndDate").datepicker({ orientation: 'left', autoclose: !0 });
+            $("#dpStartDate").datepicker('setDate', null);
+            $("#dpEndDate").datepicker('setDate', null);
+
+            dtBookingEntry = $("#dtBookingEntry").DataTable({
+                responsive: false,
+                "columnDefs": [
+                    {
+                        "targets": 2, // Index of the column you want to center-align (0-based index)
+                        "render": function (data, type, row) {
+                            if (data>1)
+                            return '<div style="text-align: center;width: 30%;margin: 0 auto;">' + '<div class="duplicate-square"> <span class="number">' + data + '</span></div>' + '</div>';
+                            return '';
+                        }
+                    }
+                ],
+                fixedColumns: {
+                    leftColumns: 2 // Number of columns to freeze on the left side
+                },
+                pagingType: "numbers",
+                scrollX: true,
+                scrollY: '60vh',
+                paging: false,
+                dom: 'Bfrtip',
+                buttons: [
+                    'colvis',
+                    'excel',
+                ]
+            });
+
+        }
+        $("#btnFilter").click(function () {
+            getBookingEntries($("#dpStartDate").datepicker('getDate'), $("#dpEndDate").datepicker('getDate'), $('#txtAWB').val());
+        });
+
+        $("#btnReset").click(function () {
+            $("#dpStartDate").datepicker('setDate', null);
+            $("#dpEndDate").datepicker('setDate', null);
+            $('#txtAWB').val(null);
+            dtBookingEntry.clear().draw();
+        });
+
+        function formateDate(selectedDate) {
+            var formattedDate = selectedDate ? selectedDate.getFullYear() + '-' + (selectedDate.getMonth() + 1).toString().padStart(2, '0') + '-' + selectedDate.getDate().toString().padStart(2, '0') : null;
+            return formattedDate;
+        }
+
+        function getBookingEntries(startDate, endDate, awb) {
+            $('.loader').show();
+            startDate = formateDate(startDate);
+            endDate = formateDate(endDate);
+            dtBookingEntry.clear().draw();
+            var url = '/BookingEntry/GetBookingEntriesByDate?fromDate=' + startDate + '&' + 'toDate=' + endDate + "&" + 'awb=' + awb;
+            $.ajax({
+                'url': url,
+                'method': 'GET',
+                'dataType': 'json',
+                cache: false,
+                'contentType': 'application/json',
+                success: function (response) {
+                    if (response) {
+                        var result = response;
+                        var rows = [];
+                        $.each(result, function (k, v) {
+                            var editButton = '<a href="javascript:void(0)" class="edit-exception" style="padding:15px" data-bookingEntryId=' + v["bookingEntryId"] + ' data-emailWeight=' + v["emailWeight"] + ' data-emailVolume=' + v["emailVolume"] + ' data-emailRate=' + v["emailRate"] + ' data-emailRevenue=' + v["emailRevenue"] + ' data-emailIsCNFNReceived=' + v["emailIsCNFNReceived"] + ' data-scaIsApplicable=' + v["scaIsApplicable"] + '><i class="fa fa-edit"></i></a>'
+
+                            rows.push([
+                                v["awb"],
+                                editButton,
+                                v["awbCount"],
+                                v["emailWeight"].toFixed(2),
+                                v["emailVolume"].toFixed(2),
+                                v["emailRate"].toFixed(2),
+                                v["emailRevenue"].toFixed(2),
+                                v["emailIsCNFNReceived"] ? 'Yes' : 'No',
+                                v["scaIsApplicable"]?'Yes':'No',
+                                v["bookingCreatedDate"],
+                                v["flightDepartureDate"],
+                                v["bookingTime"],
+                                v["flightDepartureTime"],
+                                v["bookingOrigin"],
+                                v["bookingDestination"],
+                                v["bookingRateType"],
+                                v["agentCode"],
+                                v["agentName"],
+                                v["bookingDestinationCountry"],
+                                v["bookingDestinationRegion"],
+                                v["bookingLastUpdatedBy"],
+                                v["bookingOriginCountry"],
+                                v["bookingOriginSalesArea"],
+                                v["bookingOriginRegion"],
+                                v["bookingReference"],
+                                v["channel"],
+                                v["specialHandlingCodes"],
+                                v["chargeableWeight"],
+                                v["currency"],
+                                v["revGBP"],
+                                v["revForeign"],
+                                v["yieldGBP"],
+                                v["yieldForeign"],
+                                v["volume"],
+                                v["productCode"],
+                                v["productName"],
+                                v["flightNumber"],
+                                v["metalInfo"],
+                                v["exceptionId"],
+                                v["exceptionDescription"],
+                                v["exceptionRuleExist"],
+                            ]);
+                        });
+                        dtBookingEntry.rows.add(rows).draw();
+                        $('.loader').hide();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $('.loader').hide();
+                }
+            });
+        }
+
+        var modal = $('#addupdateModal');
+        // Prevent modal from closing on outside click
+        modal.modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+
+        $(document).on('click', '.edit-exception', function () {
+            let element = $(this);
+            let bookingEntryId = element.attr('data-bookingEntryId');
+            let emailWeight = element.attr('data-emailWeight');
+            let emailVolume = element.attr('data-emailVolume');
+            let emailRate = element.attr('data-emailRate');
+            let emailRevenue = element.attr('data-emailRevenue');
+            let emailIsCNFNReceived = element.attr('data-emailIsCNFNReceived');
+            let scaIsApplicable = element.attr('data-scaIsApplicable');
+            $('#txtBookingEntryId').val(bookingEntryId);
+            $('#txtEmailWeight').val(emailWeight);
+            $('#txtEmailVolume').val(emailVolume);
+            $('#txtEmailRate').val(emailRate);
+            $('#txtEmailRevenue').val(emailRevenue);
+            if (emailIsCNFNReceived==='true')
+                $("#chkEmailIsCNFNReceived").prop("checked", true);
+            if (scaIsApplicable === 'true')
+                $("#chkSCAIsApplicable").prop("checked", true);
+
+            $('#addupdateModal').modal('show');
+        });
+        $(document).on('click', '.closeaddupdateModal', function () {
+            $('#addupdateModal').modal('hide');
+        });
+
+        function isDecimal(inputVal) {
+            var decimalRegex = /^\d*\.?\d+$/; // Regular expression for decimal number
+            if (decimalRegex.test(inputVal)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $("#btnSave").click(function () {
+            $('#errorMsg').css('display', 'none');
+            $('#errorMsg').text("");
+
+            if (!isDecimal($('#txtEmailWeight').val()) ||
+                !isDecimal($('#txtEmailVolume').val()) ||
+                !isDecimal($('#txtEmailRate').val()) ||
+                !isDecimal($('#txtEmailRevenue').val())) {
+                $('#errorMsg').css('display', 'block');
+                $('#errorMsg').text("Invalid input - Weight, Volume, Rate, Revenue should be a number.");
+                return;
+            }
+
+            var data = {
+                bookingEntryId: Number($('#txtBookingEntryId').val()),
+                emailWeight: Number($('#txtEmailWeight').val()),
+                emailVolume: Number($('#txtEmailVolume').val()),
+                emailRate: Number($('#txtEmailRate').val()),
+                emailRevenue: Number($('#txtEmailRevenue').val()),
+                emailIsCNFNReceived: $("#chkEmailIsCNFNReceived").prop("checked"),
+                scaIsApplicable: $("#chkSCAIsApplicable").prop("checked")
+            }
+
+            $.ajax({
+                url: '/bookingEntry/updateEmailDetails',
+                method: 'Post',
+                cache: false,
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (response) {
+                    toastr.success("Email details saved successfully");
+                    $('#addupdateModal').modal('hide');
+                    getBookingEntries($("#dpStartDate").datepicker('getDate'), $("#dpEndDate").datepicker('getDate'), $('#txtAWB').val());
+                  
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $('#addupdateModal').modal('hide');
+                }
+            });
+
+
+        });
+
+    })
+    </script>
+
+}

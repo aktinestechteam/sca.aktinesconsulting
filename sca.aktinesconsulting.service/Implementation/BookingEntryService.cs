@@ -47,5 +47,14 @@ namespace sca.aktinesconsulting.service.Implementation
         {
             return _bookingEntryRepository.GetBySCAVersionId(scaVersionId);
         }
+        public Task<IList<BookingEntry>> GetByBookingDate(DateTime? fromDate, DateTime? toDate, string awb)
+        {
+            return _bookingEntryRepository.GetByBookingDate(fromDate, toDate, awb);
+        }
+
+        public Task<int> UpdateEmailDetails(int bookingEntryId, decimal emailWeight, decimal emailVolume, decimal emailRate, decimal emailRevenue, bool emailIsCNFNReceived, bool scaIsApplicable, int emailUpdatedBy)
+        {
+            return _bookingEntryRepository.UpdateEmailDetails(bookingEntryId, emailWeight, emailVolume, emailRate, emailRevenue, emailIsCNFNReceived, scaIsApplicable, emailUpdatedBy);
+        }
     }
 }

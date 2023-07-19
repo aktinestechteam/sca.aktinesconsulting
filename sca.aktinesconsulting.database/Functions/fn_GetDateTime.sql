@@ -1,0 +1,11 @@
+﻿CREATE FUNCTION fn_GetDateTime
+(
+@Date VARCHAR(MAX),
+@Time VARCHAR(MAX)
+)
+RETURNS DATETIME
+AS
+BEGIN
+	-- Return the result of the function
+	RETURN DATEADD(day, DATEDIFF(day, 0, CAST(@Date AS DATETIME)), CAST(@TIME AS DATETIME))
+END

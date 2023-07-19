@@ -25,5 +25,8 @@ namespace sca.aktinesconsulting.web.Controllers
             model.Versions = await _scaVersion.GetAll();
             return View("BookingEntryVersion", model);
         }
+
+
+      
     }
 }

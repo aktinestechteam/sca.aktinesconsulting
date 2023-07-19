@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Stored Procedures" />
+    <Folder Include="Functions" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\SCAExceptionFieldTypes.sql" />
@@ -86,6 +87,9 @@
     <Build Include="Stored Procedures\SCAVersions_GetAll.sql" />
     <Build Include="Stored Procedures\BookingEntries_GetBySCAVersionId.sql" />
     <Build Include="Stored Procedures\Permissions_GetByUserId.sql" />
+    <Build Include="Functions\fn_GetDateTime.sql" />
+    <Build Include="Stored Procedures\BookingEntries_GetByDate.sql" />
+    <Build Include="Stored Procedures\BookingEntries_UpdateEmailDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="sca.aktinesconsulting.database.refactorlog" />

@@ -57,11 +57,13 @@
                                             <div class="menu-submenu" style="height: 0px;">
                                                 <div class="menu-item"><a href="@Url.Action( "Index", "SCAException")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-play-circle"></i> <span class="menu-item-text">Process</span></a></div>
                                                 @{
-                                                    if (User.IsAllowed(Permissions.SCARule,PermissionType.Create))
+                                                    if (User.IsAllowed(Permissions.SCARule, PermissionType.Create))
                                                     {
-                                                    <div class="menu-item"><a href="@Url.Action( "Exceptions", "SCAExceptionSetting")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-gear"></i> <span class="menu-item-text">Rule Settings</span></a></div>
+                                                        <div class="menu-item"><a href="@Url.Action( "Exceptions", "SCAExceptionSetting")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-gear"></i> <span class="menu-item-text">Rule Settings</span></a></div>
                                                     }
                                                 }
+                                                <div class="menu-item"><a href="@Url.Action( "BookingEntries","BookingEntry")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-bars"></i> <span class="menu-item-text">Booking Entry</span></a></div>
+
                                                 @*<div class="menu-item"><a href="@Url.Action( "Index","SCAExceptionFieldType")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-wrench"></i> <span class="menu-item-text">Masters</span></a></div>*@
                                             </div>
                                         </div>

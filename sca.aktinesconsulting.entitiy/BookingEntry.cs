@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace sca.aktinesconsulting.entitiy
 {
-    public class BookingEntry
+    public class BookingEntry : EmailInfo
     {
+        public int BookingEntryId { get; set; }
         public string AWB { get; set; }
         public string BookingCreatedDate { get; set; }
         public string FlightDepartureDate { get; set; }
@@ -47,4 +48,25 @@ namespace sca.aktinesconsulting.entitiy
         public string ExceptionRuleExist { get; set; }
 
     }
+   
+    public class EmailInfo : AWB
+    {
+        public decimal EmailWeight { get; set; }
+        public decimal EmailVolume { get; set; }
+        public decimal EmailRate { get; set; }
+        public decimal EmailRevenue { get; set; }
+        public bool EmailIsCNFNReceived { get; set; }
+        public bool SCAIsApplicable { get; set; }
+        public DateTime EmailUpdatedOn { get; set; }
+        public int EmailUpdatedBy { get; set; }
+    }
+
+    public class AWB
+    {
+        public int AWBCount { get; set; }
+    }
+
+
+
+
 }

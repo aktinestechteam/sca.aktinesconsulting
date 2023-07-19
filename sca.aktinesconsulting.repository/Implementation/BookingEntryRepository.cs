@@ -71,5 +71,49 @@ namespace sca.aktinesconsulting.repository.Implementation
                 throw;
             }
         }
+
+        public async Task<IList<BookingEntry>> GetByBookingDate(DateTime? fromDate, DateTime? toDate, string awb)
+        {
+            try
+            {
+                using (var con = _dbContext.Connection)
+                {
+                    var queryParameters = new { StartDate = fromDate, EndDate= toDate, AWB= awb };
+                    var result = (await SqlMapper.QueryAsync<BookingEntry>(con, ConstantStoredProcedures.BookingEntries_GetByDate, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<int> UpdateEmailDetails(int bookingEntryId, decimal emailWeight, decimal emailVolume, decimal emailRate, decimal emailRevenue, bool emailIsCNFNReceived, bool scaIsApplicable, int emailUpdatedBy)
+        {
+            try
+            {
+                using (var con = _dbContext.Connection)
+                {
+                    var queryParameters = new DynamicParameters();
+                    queryParameters.Add("@BookingEntryId", bookingEntryId);
+                    queryParameters.Add("@EmailWeight", emailWeight);
+                    queryParameters.Add("@EmailVolume", emailVolume);
+                    queryParameters.Add("@EmailRate", emailRate);
+                    queryParameters.Add("@EmailRevenue", emailRevenue);
+                    queryParameters.Add("@EmailIsCNFNReceived", emailIsCNFNReceived);
+                    queryParameters.Add("@SCAIsApplicable", scaIsApplicable);
+                    queryParameters.Add("@EmailUpdatedBy", emailUpdatedBy);
+                    return (await SqlMapper.QueryAsync<int>(con, ConstantStoredProcedures.BookingEntries_UpdateEmailDetails, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
+
     }
 }

@@ -20,7 +20,8 @@ namespace sca.aktinesconsulting.repository.Common
         public const string SCAVersions_GetAll = "SCAVersions_GetAll";
         public const string BookingEntries_GetBySCAVersionId = "BookingEntries_GetBySCAVersionId";
         public const string Permissions_GetByUserId = "Permissions_GetByUserId";
-
+        public const string BookingEntries_GetByDate = "BookingEntries_GetByDate";
+        public const string BookingEntries_UpdateEmailDetails = "BookingEntries_UpdateEmailDetails";
 
 
 
