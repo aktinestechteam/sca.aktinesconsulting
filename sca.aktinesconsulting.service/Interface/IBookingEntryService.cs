@@ -13,5 +13,7 @@ namespace sca.aktinesconsulting.service.Interface
         Task<IList<BookingEntry>> GetBySCAVersionId(int scaVersionId);
         Task<IList<BookingEntry>> GetByBookingDate(DateTime? fromDate, DateTime? toDate, string awb);
         Task<int> UpdateEmailDetails(int bookingEntryId, decimal emailWeight, decimal emailVolume, decimal emailRate, decimal emailRevenue, bool emailIsCNFNReceived, bool scaIsApplicable, int emailUpdatedBy);
+        Task<IList<BookingEntry>> GetByBookingAWB(DateTime? fromDate, DateTime? toDate, string awb);
+
     }
 }

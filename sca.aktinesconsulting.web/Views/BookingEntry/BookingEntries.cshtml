@@ -114,7 +114,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addupdateModalLabel">Update Email Details </h5>
+                <h5 class="modal-title" id="addupdateModalLabel">Update Email Details - <span id="labAWB"></span> </h5>
                 <button type="button" class="close closeaddupdateModal" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -165,7 +165,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <div style="display:flex">
                                     <span style="min-width:30%"><i class="fa fa-asterisk" style="font-size: 6px; color: #FF0000"></i> SCA Applicable </span>
-                                    <input  type="checkbox" id="chkSCAIsApplicable"  style="margin-left:20px">
+                                    <input type="checkbox" id="chkSCAIsApplicable" style="margin-left:20px">
                                 </div>
                             </div>
                         </div>
@@ -177,6 +177,57 @@
                 <button type="button" id="btnSave" class="btn btn-primary"><i class="fa fa-save" style="margin-right:5px"></i> Save</button>
                 <button type="button" class="btn btn-secondary closeaddupdateModal" data-dismiss="modal"> <i class="fa fa-close" style="margin-right:5px"></i> Close</button>
             </div>
+
+            <hr />
+            <div style="padding:20px">
+                <table id="dtBookingEntryAWB" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline">
+                    <thead>
+                        <tr>
+                            <td>FULL_AWB</td>
+                            <td>Email Weight</td>
+                            <td>Email Volume</td>
+                            <td>Email Rate</td>
+                            <td>Email Revenue</td>
+                            <td>Email CNFN_Received</td>
+                            <td>Email SCA_Applicable</td>
+                            <td>BOOKING_DATE</td>
+                            <td>FLIGHT_DEP_DATE</td>
+                            <td>BOOKING_TIME</td>
+                            <td>FLIGHT_DEP_TIME</td>
+                            <td>BKG_ORIGIN</td>
+                            <td>BKG_DESTN</td>
+                            <td>BKG_RATE_TYPE</td>
+                            <td>AGENT</td>
+                            <td>AGENT_NAME</td>
+                            <td>BKG_DEST_COUNTRY</td>
+                            <td>BKG_DEST_REGION</td>
+                            <td>BKG_LAST_UPDATED_BY</td>
+                            <td>BKG_ORIGIN_COUNTRY</td>
+                            <td>BKG_ORIGIN_EXT_SALES_AREA</td>
+                            <td>BKG_ORI_REGION</td>
+                            <td>BKG_REF</td>
+                            <td>CHANNEL_CD</td>
+                            <td>SPH_CODES</td>
+                            <td>CHARGEABLE_WT</td>
+                            <td>CURRENCY_CD</td>
+                            <td>REV GBP</td>
+                            <td>REV FOREIGN</td>
+                            <td>YIELD GBP</td>
+                            <td>YIELD FOREIGN</td>
+                            <td>VOLUME</td>
+                            <td>PRODUCT_CODE</td>
+                            <td>PRODUCT_NAME</td>
+                            <td>FLIGHT_NUMBER</td>
+                            <td>METAL_INFO</td>
+                            <td>ExceptionId</td>
+                            <td>ExceptionDescription</td>
+                            <td>ExceptionRuleExist</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 </div>
@@ -245,6 +296,14 @@
             $("#dpStartDate").datepicker('setDate', null);
             $("#dpEndDate").datepicker('setDate', null);
 
+                dtBookingEntryAWB = $("#dtBookingEntryAWB").DataTable({
+                    responsive: false,
+                    pagingType: "numbers",
+                    scrollX: '20vh',
+                    scrollY: '22vh',
+                    paging: false,
+                });
+
             dtBookingEntry = $("#dtBookingEntry").DataTable({
                 responsive: false,
                 "columnDefs": [
@@ -305,7 +364,7 @@
                         var result = response;
                         var rows = [];
                         $.each(result, function (k, v) {
-                            var editButton = '<a href="javascript:void(0)" class="edit-exception" style="padding:15px" data-bookingEntryId=' + v["bookingEntryId"] + ' data-emailWeight=' + v["emailWeight"] + ' data-emailVolume=' + v["emailVolume"] + ' data-emailRate=' + v["emailRate"] + ' data-emailRevenue=' + v["emailRevenue"] + ' data-emailIsCNFNReceived=' + v["emailIsCNFNReceived"] + ' data-scaIsApplicable=' + v["scaIsApplicable"] + '><i class="fa fa-edit"></i></a>'
+                            var editButton = '<a href="javascript:void(0)" class="edit-exception" style="padding:15px" data-bookingEntryId=' + v["bookingEntryId"] + ' data-awb=' + v["awb"] + ' data-emailWeight=' + v["emailWeight"] + ' data-emailVolume=' + v["emailVolume"] + ' data-emailRate=' + v["emailRate"] + ' data-emailRevenue=' + v["emailRevenue"] + ' data-emailIsCNFNReceived=' + v["emailIsCNFNReceived"] + ' data-scaIsApplicable=' + v["scaIsApplicable"] + '><i class="fa fa-edit"></i></a>'
 
                             rows.push([
                                 v["awb"],
@@ -361,6 +420,77 @@
             });
         }
 
+        function getBookingEntriesAWB(startDate, endDate, awb) {
+            startDate = formateDate(startDate);
+            endDate = formateDate(endDate);
+            dtBookingEntryAWB.clear().draw();
+            var url = '/BookingEntry/GetBookingEntriesByAWB?fromDate=' + startDate + '&' + 'toDate=' + endDate + "&" + 'awb=' + awb;
+            $.ajax({
+                'url': url,
+                'method': 'GET',
+                'dataType': 'json',
+                cache: false,
+                'contentType': 'application/json',
+                success: function (response) {
+                    if (response) {
+                        var result = response;
+                        var rows = [];
+                        $.each(result, function (k, v) {
+
+                            rows.push([
+                                v["awb"],
+                                v["emailWeight"].toFixed(2),
+                                v["emailVolume"].toFixed(2),
+                                v["emailRate"].toFixed(2),
+                                v["emailRevenue"].toFixed(2),
+                                v["emailIsCNFNReceived"] ? 'Yes' : 'No',
+                                v["scaIsApplicable"] ? 'Yes' : 'No',
+                                v["bookingCreatedDate"],
+                                v["flightDepartureDate"],
+                                v["bookingTime"],
+                                v["flightDepartureTime"],
+                                v["bookingOrigin"],
+                                v["bookingDestination"],
+                                v["bookingRateType"],
+                                v["agentCode"],
+                                v["agentName"],
+                                v["bookingDestinationCountry"],
+                                v["bookingDestinationRegion"],
+                                v["bookingLastUpdatedBy"],
+                                v["bookingOriginCountry"],
+                                v["bookingOriginSalesArea"],
+                                v["bookingOriginRegion"],
+                                v["bookingReference"],
+                                v["channel"],
+                                v["specialHandlingCodes"],
+                                v["chargeableWeight"],
+                                v["currency"],
+                                v["revGBP"],
+                                v["revForeign"],
+                                v["yieldGBP"],
+                                v["yieldForeign"],
+                                v["volume"],
+                                v["productCode"],
+                                v["productName"],
+                                v["flightNumber"],
+                                v["metalInfo"],
+                                v["exceptionId"],
+                                v["exceptionDescription"],
+                                v["exceptionRuleExist"],
+                            ]);
+                        });
+                        dtBookingEntryAWB.rows.add(rows).draw();
+                        $('.loader').hide();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $('.loader').hide();
+                }
+            });
+        }
+
+
+
         var modal = $('#addupdateModal');
         // Prevent modal from closing on outside click
         modal.modal({
@@ -372,6 +502,7 @@
         $(document).on('click', '.edit-exception', function () {
             let element = $(this);
             let bookingEntryId = element.attr('data-bookingEntryId');
+            let awb = element.attr('data-awb');
             let emailWeight = element.attr('data-emailWeight');
             let emailVolume = element.attr('data-emailVolume');
             let emailRate = element.attr('data-emailRate');
@@ -387,7 +518,8 @@
                 $("#chkEmailIsCNFNReceived").prop("checked", true);
             if (scaIsApplicable === 'true')
                 $("#chkSCAIsApplicable").prop("checked", true);
-
+            $('#labAWB').text(awb);
+            getBookingEntriesAWB($("#dpStartDate").datepicker('getDate'), $("#dpEndDate").datepicker('getDate'),awb);
             $('#addupdateModal').modal('show');
         });
         $(document).on('click', '.closeaddupdateModal', function () {

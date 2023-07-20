@@ -56,5 +56,10 @@ namespace sca.aktinesconsulting.service.Implementation
         {
             return _bookingEntryRepository.UpdateEmailDetails(bookingEntryId, emailWeight, emailVolume, emailRate, emailRevenue, emailIsCNFNReceived, scaIsApplicable, emailUpdatedBy);
         }
+
+        public Task<IList<BookingEntry>> GetByBookingAWB(DateTime? fromDate, DateTime? toDate, string awb)
+        {
+            return _bookingEntryRepository.GetByBookingAWB(fromDate, toDate, awb);
+        }
     }
 }

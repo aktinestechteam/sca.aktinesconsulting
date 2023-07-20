@@ -90,6 +90,7 @@
     <Build Include="Functions\fn_GetDateTime.sql" />
     <Build Include="Stored Procedures\BookingEntries_GetByDate.sql" />
     <Build Include="Stored Procedures\BookingEntries_UpdateEmailDetails.sql" />
+    <Build Include="Stored Procedures\BookingEntries_GetByAWB.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="sca.aktinesconsulting.database.refactorlog" />

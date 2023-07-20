@@ -43,5 +43,12 @@ namespace sca.aktinesconsulting.web.Controllers
             entity.EmailUpdatedBy = (int)HttpContext.User.GetUserId();
             return await _bookingEntryService.UpdateEmailDetails(entity.BookingEntryId, entity.EmailWeight, entity.EmailVolume, entity.EmailRate, entity.EmailRevenue, entity.EmailIsCNFNReceived, entity.SCAIsApplicable, entity.EmailUpdatedBy);
         }
+
+        [HttpGet]
+        public async Task<IList<BookingEntry>> GetBookingEntriesByAWB([FromQuery] DateTime? fromDate, DateTime? toDate, string awb)
+        {
+            return await _bookingEntryService.GetByBookingAWB(fromDate, toDate, awb);
+        }
+
     }
 }

@@ -22,7 +22,7 @@ namespace sca.aktinesconsulting.repository.Common
         public const string Permissions_GetByUserId = "Permissions_GetByUserId";
         public const string BookingEntries_GetByDate = "BookingEntries_GetByDate";
         public const string BookingEntries_UpdateEmailDetails = "BookingEntries_UpdateEmailDetails";
-
+        public const string BookingEntries_GetByAWB = "BookingEntries_GetByAWB";
 
 
         //Tables

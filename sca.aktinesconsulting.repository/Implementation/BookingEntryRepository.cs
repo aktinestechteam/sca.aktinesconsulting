@@ -113,6 +113,23 @@ namespace sca.aktinesconsulting.repository.Implementation
             }
         }
 
+        public async Task<IList<BookingEntry>> GetByBookingAWB(DateTime? fromDate, DateTime? toDate, string awb)
+        {
+            try
+            {
+                using (var con = _dbContext.Connection)
+                {
+                    var queryParameters = new { StartDate = fromDate, EndDate = toDate, AWB = awb };
+                    var result = (await SqlMapper.QueryAsync<BookingEntry>(con, ConstantStoredProcedures.BookingEntries_GetByAWB, queryParameters, commandTimeout: 0, commandType: System.Data.CommandType.StoredProcedure)).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
 
 
     }
