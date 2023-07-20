@@ -18,4 +18,5 @@ BEGIN
 					) awbEntries ON awbEntries.AWB= be.AWB AND [dbo].fn_GetDateTime(be.BookingCreatedDate,be.BookingTime)=awbEntries.BookingDate 
 		GROUP BY awbEntries.BookingDate					
 	) awbEntries ON be.BookingEntryId= awbEntries.BookingEntryId	
+	ORDER BY awbEntries.BookingDate DESC
 END	

@@ -500,6 +500,8 @@
 
 
         $(document).on('click', '.edit-exception', function () {
+            $("#chkEmailIsCNFNReceived").prop("checked", false);
+            $("#chkSCAIsApplicable").prop("checked", false); 
             let element = $(this);
             let bookingEntryId = element.attr('data-bookingEntryId');
             let awb = element.attr('data-awb');
