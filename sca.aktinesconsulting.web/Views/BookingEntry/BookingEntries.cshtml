@@ -66,7 +66,7 @@
                                 <td>Email Rate</td>
                                 <td>Email Revenue</td>
                                 <td>Email CNFN_Received</td>
-                                <td>Email SCA_Applicable</td>
+                                <td>SCA_Applicable</td>
                                 <td>BOOKING_DATE</td>
                                 <td>FLIGHT_DEP_DATE</td>
                                 <td>BOOKING_TIME</td>
@@ -189,7 +189,7 @@
                             <td>Email Rate</td>
                             <td>Email Revenue</td>
                             <td>Email CNFN_Received</td>
-                            <td>Email SCA_Applicable</td>
+                            <td>SCA_Applicable</td>
                             <td>BOOKING_DATE</td>
                             <td>FLIGHT_DEP_DATE</td>
                             <td>BOOKING_TIME</td>
@@ -332,6 +332,8 @@
 
         }
         $("#btnFilter").click(function () {
+            if (!($("#dpStartDate").datepicker('getDate')) && !($("#dpEndDate").datepicker('getDate')) && !($('#txtAWB').val()))
+                return;
             getBookingEntries($("#dpStartDate").datepicker('getDate'), $("#dpEndDate").datepicker('getDate'), $('#txtAWB').val());
         });
 
@@ -550,33 +552,48 @@
                 return;
             }
 
-            var data = {
-                bookingEntryId: Number($('#txtBookingEntryId').val()),
-                emailWeight: Number($('#txtEmailWeight').val()),
-                emailVolume: Number($('#txtEmailVolume').val()),
-                emailRate: Number($('#txtEmailRate').val()),
-                emailRevenue: Number($('#txtEmailRevenue').val()),
-                emailIsCNFNReceived: $("#chkEmailIsCNFNReceived").prop("checked"),
-                scaIsApplicable: $("#chkSCAIsApplicable").prop("checked")
-            }
+            Swal.fire({
+                title: '<span style="font-size:14px">AWB : ' + $('#txtAWB').val() +' - Update Email Inputs </span>',
+                text: "Congratulations! You're almost there! Please take a moment to review the SCA Policy and Exceptions before finalizing.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, reviewed it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var data = {
+                        bookingEntryId: Number($('#txtBookingEntryId').val()),
+                        emailWeight: Number($('#txtEmailWeight').val()),
+                        emailVolume: Number($('#txtEmailVolume').val()),
+                        emailRate: Number($('#txtEmailRate').val()),
+                        emailRevenue: Number($('#txtEmailRevenue').val()),
+                        emailIsCNFNReceived: $("#chkEmailIsCNFNReceived").prop("checked"),
+                        scaIsApplicable: $("#chkSCAIsApplicable").prop("checked")
+                    }
+                    $.ajax({
+                        url: '/bookingEntry/updateEmailDetails',
+                        method: 'Post',
+                        cache: false,
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        success: function (response) {
+                            toastr.success("Email details saved successfully");
+                            $('#addupdateModal').modal('hide');
+                            getBookingEntries($("#dpStartDate").datepicker('getDate'), $("#dpEndDate").datepicker('getDate'), $('#txtAWB').val());
 
-            $.ajax({
-                url: '/bookingEntry/updateEmailDetails',
-                method: 'Post',
-                cache: false,
-                data: JSON.stringify(data),
-                contentType: 'application/json',
-                dataType: 'json',
-                success: function (response) {
-                    toastr.success("Email details saved successfully");
-                    $('#addupdateModal').modal('hide');
-                    getBookingEntries($("#dpStartDate").datepicker('getDate'), $("#dpEndDate").datepicker('getDate'), $('#txtAWB').val());
-                  
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $('#addupdateModal').modal('hide');
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            $('#addupdateModal').modal('hide');
+                        }
+                    });
                 }
-            });
+            })
+
+
+
+        
 
 
         });

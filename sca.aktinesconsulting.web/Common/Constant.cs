@@ -8,7 +8,6 @@ namespace sca.aktinesconsulting.web.Common
     public class Permissions
     {
         public const string SCARule = "SCARule";
-
-
+        public const string BookingEntries = "BookingEntries";
     }
 }

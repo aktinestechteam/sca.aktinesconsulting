@@ -24,6 +24,8 @@ namespace sca.aktinesconsulting.web.Controllers
         [HttpGet]
         public IActionResult BookingEntries()
         {
+            if (!User.IsAllowed(Permissions.BookingEntries, PermissionType.View))
+                return Redirect("/SCAException/Index");
             return View();
         }
         [HttpGet]
