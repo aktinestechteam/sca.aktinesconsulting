@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[BookingEntries](
 [BookingEntryId] [int] IDENTITY(1,1) NOT NULL,
 [SCAVersionId] int NOT NULL,
-AWB varchar(max),
+AWB varchar(20),
 BookingCreatedDate varchar(max),
 FlightDepartureDate  varchar(max),
 BookingTime  varchar(max),

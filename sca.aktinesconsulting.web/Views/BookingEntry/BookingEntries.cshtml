@@ -500,7 +500,7 @@
             keyboard: false
         });
 
-
+        var revenueChangedValue = 0;
         $(document).on('click', '.edit-exception', function () {
             $("#chkEmailIsCNFNReceived").prop("checked", false);
             $("#chkSCAIsApplicable").prop("checked", false); 
@@ -518,7 +518,8 @@
             $('#txtEmailVolume').val(emailVolume);
             $('#txtEmailRate').val(emailRate);
             $('#txtEmailRevenue').val(emailRevenue);
-            if (emailIsCNFNReceived==='true')
+            revenueChangedValue = 0;
+            if (emailIsCNFNReceived === 'true')
                 $("#chkEmailIsCNFNReceived").prop("checked", true);
             if (scaIsApplicable === 'true')
                 $("#chkSCAIsApplicable").prop("checked", true);
@@ -539,6 +540,26 @@
             }
         }
 
+        $('#txtEmailWeight').keyup(function () {
+            var revenue = calculateRevenue($('#txtEmailWeight').val(), $('#txtEmailRate').val());
+            $('#txtEmailRevenue').val(revenue);
+        });
+        $('#txtEmailRate').keyup(function () {
+            var revenue = calculateRevenue($('#txtEmailWeight').val(), $('#txtEmailRate').val());
+            $('#txtEmailRevenue').val(revenue);
+        });
+
+
+        $('#txtEmailRevenue').keyup(function () {
+            revenueChangedValue = Number($('#txtEmailRevenue').val());
+        });
+
+        function calculateRevenue(weight,rate) {
+            var revenue = Number(weight) * Number(rate);
+            return revenue;
+        }
+
+        
         $("#btnSave").click(function () {
             $('#errorMsg').css('display', 'none');
             $('#errorMsg').text("");
@@ -552,16 +573,41 @@
                 return;
             }
 
-            Swal.fire({
-                title: '<span style="font-size:14px">AWB : ' + $('#txtAWB').val() +' - Update Email Inputs </span>',
+            var confirmationObj = {
+                title: '<span style="font-size:14px">AWB : ' + $('#txtAWB').val() + ' - Update Email Inputs </span>',
                 text: "Congratulations! You're almost there! Please take a moment to review the SCA Policy and Exceptions before finalizing.",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, reviewed it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
+            }
+
+            var revenue = calculateRevenue($('#txtEmailWeight').val(), $('#txtEmailRate').val());
+            if (revenue != Number($('#txtEmailRevenue').val())) {
+                confirmationObj = {
+                    title: '<span style="font-size:14px">AWB : ' + $('#txtAWB').val() + ' - Update Email Inputs </span>',
+                    html: "A <span style='color:#FF0000'>difference</span> has been found in the <span style='color:#FF0000'>revenue calculation</span>. It is not as per the formula weight * rate. Would you still like to save?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, save it!'
+                }
+            }
+            else if (revenue != revenueChangedValue && revenueChangedValue!=0) {
+                confirmationObj = {
+                    title: '<span style="font-size:14px">AWB : ' + $('#txtAWB').val() + ' - Update Email Inputs </span>',
+                    html: "You have <span style='color:#FF0000'> manually changed revenue </span> earlier. Now, it has been recalculated again as per the formula: weight * rate. <br>Would you like to recheck or save? ",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, save it!'
+                }
+            }
+                Swal.fire(confirmationObj).then((result) => {
+                    if (result.isConfirmed) { 
                     var data = {
                         bookingEntryId: Number($('#txtBookingEntryId').val()),
                         emailWeight: Number($('#txtEmailWeight').val()),
