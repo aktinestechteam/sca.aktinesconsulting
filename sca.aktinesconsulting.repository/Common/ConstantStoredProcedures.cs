@@ -23,10 +23,18 @@ namespace sca.aktinesconsulting.repository.Common
         public const string BookingEntries_GetByDate = "BookingEntries_GetByDate";
         public const string BookingEntries_UpdateEmailDetails = "BookingEntries_UpdateEmailDetails";
         public const string BookingEntries_GetByAWB = "BookingEntries_GetByAWB";
+        public const string LastBookingEntries_Delete = "LastBookingEntries_Delete";
+        public const string LastBookingEntries_GetDuplicates = "LastBookingEntries_GetDuplicates";
+        public const string LastBookingEntries_Get = "LastBookingEntries_Get";
+        public const string LastBookingEntries_IsExist = "LastBookingEntries_IsExist";
+        public const string LastBookingVersions_Get = "LastBookingVersions_Get";
+        public const string LastBookingEntries_UpdateIsConsidered = "LastBookingEntries_UpdateIsConsidered";
+        public const string Report_GetOutlierReport = "Report_GetOutlierReport";
+
 
 
         //Tables
         public const string Table_BookingEntries = "BookingEntries";
-        
+        public const string Table_LastBookingEntries = "LastBookingEntries";
     }
 }

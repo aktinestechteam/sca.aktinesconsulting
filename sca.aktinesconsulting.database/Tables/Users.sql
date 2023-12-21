@@ -8,7 +8,7 @@
 	[UpdatedBy] [int] NULL,
 	[UpdatedOn] [datetime] NULL,
 	[IsActive] [bit] NOT NULL DEFAULT 1,
- [FirstName] VARCHAR(50) NULL, 
+    [FirstName] VARCHAR(50) NULL, 
     [LastName] VARCHAR(50) NULL, 
     CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
 (

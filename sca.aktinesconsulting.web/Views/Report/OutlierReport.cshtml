@@ -1,0 +1,173 @@
+﻿@using System.Security.Claims
+@using sca.aktinesconsulting.web.Common
+@model sca.aktinesconsulting.web.Models.LastBookingEntryModel
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "v";
+    ViewData["BreadcrumbHeader"] = "Report";
+    ViewData["BreadcrumbPage"] = "Outlier Report";
+}
+
+<div class="row">
+    <div class="loader"></div> <!-- Loader element -->
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-header portlet-header-bordered">
+                <h3 class="portlet-title">Outlier Report </h3>
+            </div>
+            <div class="portlet-body">
+                <div class="d-grid gap-3">      
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span id="errorMsg" style="display: none; color: #e63339"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="modal-body" style="padding:10px">
+                                    <div style="display:flex">
+                                        <div class="col-3">
+                                            <div style="display: flex; margin: 10px">
+                                                <span style="margin-top:5px">Year*</span>
+                                                <select class="form-control" style="margin-left:10px" id="cmbYear">
+                                                    <option value="0">Select</option>
+                                                    @{
+                                                        foreach (var year in Model.Version.Years)
+                                                        {
+                                                            <option value=@year.LastBookingVersionId>@year.Year</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div style="display: flex; margin: 10px">
+                                                <span style="margin-top:5px">Month*</span>
+                                                <select class="form-control" style="margin-left:10px" id="cmbMonth">
+                                                    <option value="0">Select</option>
+                                                    @{
+                                                        foreach (var year in Model.Version.Months)
+                                                        {
+                                                            <option value=@year.LastBookingVersionId>@year.Month</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div style="display: flex; margin: 10px">
+                                                <span style="margin-top: 5px;width: 200px">Flown Status</span>
+                                                <select class="form-control" style="margin-left:10px" id="cmbFlownStatus">
+                                                    @{
+                                                        <option value='SS-UU'>SS/UU</option>
+                                                        <option value='XX'>XX</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button id="btnRun" type="button" class="btn btn-primary mar" fdprocessedid="3hmaxr" style="margin-right:5px"><i class="fa fa-play-circle" style="margin-right:5px"></i>Run</button>
+                                <button id="btnReset" type="button" class="btn btn-info mar" fdprocessedid="3hmaxr" style="margin-right:5px"><i class="fa fa-undo" style="margin-right:5px"></i>Reset</button>
+                            </div>
+                        </div>
+                </div>
+                <hr />
+                <div>
+                    <h5>Outlier Report Summary</h5>
+                    <table id="dtBookingEntry" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline">
+                        <thead>
+                            <tr>
+                                <td>Origin</td>
+                                <td>Destination</td>
+                                <td>Airwaybill</td>
+                                <td>Agent Name</td>
+                                <td>Flown DIOR weight </td>
+                                <td>Flown Revenue</td>
+                                <td>SCA Weight </td>
+                                <td>SCA Email Weight </td>
+                                <td>SCA Revenue </td>
+                                <td>SCA Email Revenue </td>
+                                <td>Sum of Flown DIOR revenue (local currency)</td>
+                                <td>DIOR Total Revenue Variance %  </td>
+                                <td>DIOR Variance Total Revenue </td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@section Styles{
+    <style>
+        .buttons-colvis {
+            margin: 5px;
+        }
+
+        .buttons-excel {
+            margin: 5px;
+        }
+
+        .bg_color {
+            background-color: blue !important;
+        }
+    </style>
+    <style>
+
+        /* Custom styles for the loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
+        }
+
+            /* Customize the loader appearance (e.g., use a spinner icon) */
+            .loader::after {
+                content: "";
+                display: block;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                border-top: 3px solid #3498db;
+                animation: spin 2s linear infinite;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+}
+@section Scripts {
+    <script src="~/app/outlier-report.js" asp-append-version="true"></script>
+}

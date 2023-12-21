@@ -44,7 +44,7 @@ namespace sca.aktinesconsulting.web.Controllers
                 {
                     return JsonConvert.SerializeObject(await _exceptionService.Identify(userId,dt));
                 }
-            }
+            } 
             return string.Empty;
         }
 

@@ -91,6 +91,15 @@
     <Build Include="Stored Procedures\BookingEntries_GetByDate.sql" />
     <Build Include="Stored Procedures\BookingEntries_UpdateEmailDetails.sql" />
     <Build Include="Stored Procedures\BookingEntries_GetByAWB.sql" />
+    <Build Include="Tables\LastBookingEntries.sql" />
+    <Build Include="Tables\LastBookingVersions.sql" />
+    <Build Include="Stored Procedures\LastBookingEntries_Delete.sql" />
+    <Build Include="Stored Procedures\LastBookingEntries_GetDuplicates.sql" />
+    <Build Include="Stored Procedures\LastBookingEntries_Get.sql" />
+    <Build Include="Stored Procedures\LastBookingEntries_IsExist.sql" />
+    <Build Include="Stored Procedures\LastBookingVersions_Get.sql" />
+    <Build Include="Stored Procedures\LastBookingEntries_UpdateIsConsidered.sql" />
+    <Build Include="Stored Procedures\Report_GetOutlierReport.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="sca.aktinesconsulting.database.refactorlog" />

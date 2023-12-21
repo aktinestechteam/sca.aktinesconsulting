@@ -66,7 +66,12 @@
                                                     if (User.IsAllowed(Permissions.BookingEntries, PermissionType.View))
                                                     {
                                                         <div class="menu-item"><a href="@Url.Action("BookingEntries", "BookingEntry")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-bars"></i> <span class="menu-item-text">Booking Entry</span></a></div>
+                                                        <div class="menu-item"><a href="@Url.Action("Index", "LastBookingEntry")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-bars"></i> <span class="menu-item-text">Last Booking Entry</span></a></div>
+                                                        <div class="menu-item"><a href="@Url.Action("OutlierReport", "Report")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-bars"></i> <span class="menu-item-text">Outlier Report</span></a></div>
                                                     }
+
+                                                    <div class="menu-item"><a href="@Url.Action("Index", "LastBookingEntry")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-bars"></i> <span class="menu-item-text">Last Booking Entry</span></a></div>
+                                                    <div class="menu-item"><a href="@Url.Action("OutlierReport", "Report")" data-menu-path="/elements/base/accordion.html" class="menu-item-link"><i class="fa fa-bars"></i> <span class="menu-item-text">Outlier Report</span></a></div>
                                                 }
                                             </div>
                                         </div>

@@ -63,6 +63,10 @@ namespace sca.aktinesconsulting.web
             services.AddTransient<IBookingEntryService, BookingEntryService>();
             services.AddTransient<IPermissionService, PermissionService>();
             services.AddTransient<IPermissionRepository, PermissionRepository>();
+            services.AddTransient<ILastBookingEntryRepository, LastBookingEntryRepository>();
+            services.AddTransient<ILastBookingEntryService, LastBookingEntryService>();
+            services.AddTransient<IReportRepository, ReportRepository>();
+            services.AddTransient<IReportService, ReportService>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
